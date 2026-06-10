@@ -166,6 +166,10 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
 - [ ] UI Freeze
 - [ ] ANR
 
+- [ ] MessageQueue
+- [ ] Looper
+- [ ] Handler
+
 - [ ] Traditional Thread Problems
 - [ ] Thread Cost
 - [ ] Callback Hell
