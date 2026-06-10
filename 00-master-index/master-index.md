@@ -152,6 +152,8 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
 - [ ] Process
 
 - [ ] Thread
+- [ ] Thread Scheduling
+- [ ] Context Switching 
 - [ ] Main Thread
 - [ ] Background Thread
 - [ ] Context Switching
