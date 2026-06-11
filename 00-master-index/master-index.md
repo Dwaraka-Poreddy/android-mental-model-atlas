@@ -417,6 +417,124 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
 
 ---
 
+## DOC 9 — Performance, Debugging & Production Diagnostics
+
+**Purpose:** How Real Apps Fail And How Engineers Investigate Them
+
+### Concepts
+
+- [ ] Performance
+
+- [ ] CPU Usage
+- [ ] Memory Usage
+- [ ] Battery Usage
+
+---
+
+- [ ] Crash
+- [ ] Exception
+- [ ] Stacktrace
+
+- [ ] Crash Debugging
+- [ ] Crash Triage
+
+---
+
+- [ ] ANR Debugging
+
+- [ ] ANR Reports
+- [ ] Main Thread Analysis
+- [ ] Thread Dumps
+
+- [ ] Why ANRs Are Harder Than Crashes
+
+---
+
+- [ ] Flutter ANRs
+
+- [ ] Android Stacktrace vs Flutter Stacktrace
+- [ ] Flutter Engine Threads
+- [ ] Method Channels
+
+---
+
+- [ ] Jank
+- [ ] Frame Drops
+- [ ] Rendering Performance
+
+- [ ] Choreographer
+- [ ] Frame Timeline
+
+---
+
+- [ ] Startup Performance
+
+- [ ] Cold Start
+- [ ] Warm Start
+- [ ] Hot Start
+
+---
+
+- [ ] Memory Leaks
+
+- [ ] Leak Detection
+- [ ] LeakCanary
+
+---
+
+- [ ] StrictMode
+
+- [ ] Main Thread Violations
+- [ ] Disk Access Violations
+
+---
+
+- [ ] Logging
+
+- [ ] Logcat
+- [ ] Structured Logging
+
+---
+
+- [ ] Monitoring
+
+- [ ] Crashlytics
+- [ ] ANR Monitoring
+- [ ] Performance Monitoring
+
+---
+
+- [ ] Profiling
+
+- [ ] CPU Profiling
+- [ ] Memory Profiling
+- [ ] Network Profiling
+
+---
+
+- [ ] Perfetto
+- [ ] Systrace
+
+---
+
+- [ ] Production Investigation Workflow
+
+- [ ] Reproduce
+- [ ] Isolate
+- [ ] Root Cause Analysis
+- [ ] Verification
+
+---
+
+- [ ] Real World Case Studies
+
+- [ ] Production ANRs
+- [ ] Production Crashes
+- [ ] Performance Regressions
+- [ ] Flutter-Specific Issues
+
+---
+
 # Future Expansion
 
 The atlas is a living document.
