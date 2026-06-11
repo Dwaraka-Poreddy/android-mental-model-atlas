@@ -187,28 +187,37 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
 ### Concepts
 
 - [ ] Coroutine
+- [ ] Coroutine vs Thread
+
 - [ ] Suspension
 - [ ] Resume
 - [ ] Suspension Point
 
 - [ ] suspend Function
-- [ ] Continuation
 - [ ] Why suspend Exists
+- [ ] Continuation
+
+- [ ] Coroutine Builder
 
 - [ ] launch
 - [ ] async
 - [ ] await
+
 - [ ] runBlocking
 - [ ] coroutineScope
 
-- [ ] CoroutineScope
 - [ ] Job
 - [ ] Parent Job
 - [ ] Child Job
 
+- [ ] CoroutineScope
+
 - [ ] Structured Concurrency
+
 - [ ] supervisorScope
 - [ ] SupervisorJob
+
+- [ ] Dispatcher
 
 - [ ] Main Dispatcher
 - [ ] IO Dispatcher
@@ -225,7 +234,6 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
 - [ ] launch vs async Exceptions
 
 ---
-
 ## DOC 3 — Reactive Streams & Flow
 
 **Purpose:** How Data Moves
