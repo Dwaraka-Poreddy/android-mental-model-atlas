@@ -172,6 +172,7 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
 
 - [ ] Traditional Thread Problems
 - [ ] Thread Cost
+- [ ] Thread Communication Complexity
 - [ ] Callback Hell
 
 - [ ] Why Coroutines Were Needed
