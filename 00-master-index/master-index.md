@@ -145,38 +145,38 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
 
 ### Concepts
 
-- [ ] Program
-- [ ] CPU
-- [ ] Memory
-- [ ] Execution
-- [ ] Process
+- [x] Program
+- [x] CPU
+- [x] Memory
+- [x] Execution
+- [x] Process
 
-- [ ] Thread
-- [ ] Thread Scheduling
-- [ ] Context Switching
-- [ ] Main Thread
-- [ ] Background Thread
+- [x] Thread
+- [x] Thread Scheduling
+- [x] Context Switching
+- [x] Main Thread
+- [x] Background Thread
 
-- [ ] Blocking
-- [ ] Non-Blocking
+- [x] Blocking
+- [x] Non-Blocking
 
-- [ ] Concurrency
-- [ ] Parallelism
+- [x] Concurrency
+- [x] Parallelism
 
-- [ ] UI Freeze
-- [ ] ANR
+- [x] UI Freeze
+- [x] ANR
 
-- [ ] MessageQueue
-- [ ] Looper
-- [ ] Handler
+- [x] MessageQueue
+- [x] Looper
+- [x] Handler
 
-- [ ] Traditional Thread Problems
-- [ ] Thread Cost
-- [ ] Thread Pool
-- [ ] Thread Communication Complexity
-- [ ] Callback Hell
+- [x] Traditional Thread Problems
+- [x] Thread Cost
+- [x] Thread Pool
+- [x] Thread Communication Complexity
+- [x] Callback Hell
 
-- [ ] Why Coroutines Were Needed
+- [x] Why Coroutines Were Needed
 
 ---
 
