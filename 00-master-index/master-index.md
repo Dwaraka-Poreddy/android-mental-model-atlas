@@ -186,29 +186,28 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
 
 ### Concepts
 
-- [ ] Coroutine
-- [ ] Coroutine vs Thread
+- [x] Coroutine
+- [x] Coroutine vs Thread
 
-- [ ] Suspension
-- [ ] Resume
-- [ ] Suspension Point
+- [x] Suspension
+- [x] Resume
+- [x] Suspension Point
 
-- [ ] suspend Function
-- [ ] Why suspend Exists
-- [ ] Continuation
+- [x] suspend Function
+- [x] Why suspend Exists
+- [x] Continuation
 
-- [ ] Coroutine Builder
+- [x] Coroutine Builder
 
-- [ ] launch
-- [ ] async
-- [ ] await
+- [x] launch
+- [x] async
+- [x] await
 
 - [ ] runBlocking
 - [ ] coroutineScope
 
 - [ ] Job
-- [ ] Parent Job
-- [ ] Child Job
+- [ ] Parent - Child Job
 
 - [ ] CoroutineScope
 
