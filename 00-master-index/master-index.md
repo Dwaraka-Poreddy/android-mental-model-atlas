@@ -42,6 +42,95 @@ Understanding the problem is more important than memorizing the API.
 
 ---
 
+# Documentation Principles
+
+### Problem Before API
+
+Always teach:
+
+```text
+Problem
+↓
+Concept
+↓
+API
+```
+
+Never introduce an API before the reader understands the problem it solves.
+
+---
+
+### One Chapter = One Idea
+
+A chapter should teach one primary idea.
+
+If a chapter starts teaching multiple major ideas, split it.
+
+---
+
+### Don't Reopen Solved Problems
+
+Once a concept solves a problem:
+
+```text
+CoroutineScope
+↓
+Ownership
+```
+
+later chapters should build upon that solution rather than reintroducing the same problem.
+
+---
+
+### Every Section Must Earn Its Place
+
+For every section ask:
+
+```text
+If I delete this section,
+
+Does the reader lose
+any understanding?
+```
+
+If the answer is:
+
+```text
+No
+```
+
+remove the section.
+
+---
+
+### Avoid Repetition Disguised As Explanation
+
+A concept should not be re-explained unless new information is being introduced.
+
+Prefer:
+
+```text
+Maximum Clarity
+With Minimum Words
+```
+
+over exhaustive repetition.
+
+---
+
+### Explicit Abstraction Level
+
+Every chapter should clearly state:
+
+```text
+What abstraction level
+we are discussing
+```
+
+This prevents confusion when deeper implementation details exist but are intentionally deferred.
+
+---
+
 # Repository Entry Point
 
 The recommended starting points for this repository are:
@@ -206,7 +295,7 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
 - [x] CoroutineScope (Ownership & Lifecycle)
 - [x] Job
 
-- [ ] Parent Child Job
+- [ ] Parent–Child Job Hierarchy
 - [ ] Structured Concurrency
 
 - [ ] coroutineScope Builder
