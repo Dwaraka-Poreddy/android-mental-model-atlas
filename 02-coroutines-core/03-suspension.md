@@ -351,25 +351,30 @@ This makes asynchronous programming much more efficient and easier to express.
 
 ## Another Mental Model
 
-Imagine a restaurant.
+Imagine a restaurant chef making a pizza.
 
-A chef places a pizza in the oven.
-
-The pizza needs:
+The chef places the pizza into the oven.
 
 ```text
-15 Minutes
-```
-
-before it is ready.
-
-A poor strategy:
-
-```text
-Chef
+Put Pizza In Oven
 ↓
-Stand In Front Of Oven For 15 Minutes
+Wait For Pizza To Cook
 ```
+
+Now the chef has two choices.
+
+### Blocking
+
+```text
+Put Pizza In Oven
+↓
+Stand In Front Of Oven
+For 15 Minutes
+↓
+Pizza Ready
+```
+
+The chef cannot do anything else.
 
 This is analogous to:
 
@@ -377,15 +382,21 @@ This is analogous to:
 Blocking
 ```
 
-A better strategy:
+A resource remains occupied while waiting.
+
+---
+
+### Suspension
 
 ```text
 Put Pizza In Oven
 ↓
-Do Other Work
+Work On Other Orders
 ↓
-Return Later
+Return When Pizza Ready
 ```
+
+The chef remains productive.
 
 This is analogous to:
 
@@ -393,9 +404,26 @@ This is analogous to:
 Suspension
 ```
 
-The work pauses.
+The important mapping is:
 
-The resource remains useful.
+```text
+Chef
+↓
+Thread
+
+Pizza Cooking
+↓
+External Operation
+(Network / Database / Disk)
+
+Returning Later
+↓
+Coroutine Resumes
+```
+
+The coroutine temporarily pauses and will continue later when the required result becomes available.
+
+Meanwhile, the thread remains available for other work.
 
 ---
 
