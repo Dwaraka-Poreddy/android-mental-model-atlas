@@ -203,15 +203,14 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
 - [x] async
 - [x] await
 
-- [ ] runBlocking
-- [ ] coroutineScope
+- [x] CoroutineScope (Ownership & Lifecycle)
+- [x] Job
 
-- [ ] Job
-- [ ] Parent - Child Job
-
-- [ ] CoroutineScope
-
+- [ ] Parent Child Job
 - [ ] Structured Concurrency
+
+- [ ] coroutineScope Builder
+- [ ] runBlocking
 
 - [ ] supervisorScope
 - [ ] SupervisorJob
