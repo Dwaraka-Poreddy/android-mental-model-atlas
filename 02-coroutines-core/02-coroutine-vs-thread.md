@@ -345,9 +345,7 @@ Understanding what a coroutine is NOT is extremely important.
 A common misconception:
 
 ```text
-Coroutine
-=
-Thread
+Coroutine = Thread
 ```
 
 Incorrect.
