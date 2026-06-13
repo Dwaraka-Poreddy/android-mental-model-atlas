@@ -301,15 +301,23 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
 - [x] coroutineScope Builder
 - [x] runBlocking
 
-- [ ] SupervisorJob
-- [ ] supervisorScope
+- [x] SupervisorJob
+- [x] supervisorScope
 
-- [ ] Dispatcher
+- [x] Dispatcher
 
-- [ ] Main Dispatcher
+- [x] Main Dispatcher
 - [ ] IO Dispatcher
 - [ ] Default Dispatcher
 - [ ] Unconfined Dispatcher
+
+- [ ] Dispatcher Internals
+    - Thread Pools
+    - CPU Cores
+    - Parallelism Limits
+    - Thread Reuse
+    - Why Default Uses CPU Count
+    - Why IO Allows More Threads
 
 - [ ] Cancellation
 - [ ] isActive
