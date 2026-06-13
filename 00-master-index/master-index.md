@@ -295,14 +295,14 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
 - [x] CoroutineScope (Ownership & Lifecycle)
 - [x] Job
 
-- [ ] Parent–Child Job Hierarchy
-- [ ] Structured Concurrency
+- [x] Parent–Child Job Hierarchy
+- [x] Structured Concurrency
 
-- [ ] coroutineScope Builder
-- [ ] runBlocking
+- [x] coroutineScope Builder
+- [x] runBlocking
 
-- [ ] supervisorScope
 - [ ] SupervisorJob
+- [ ] supervisorScope
 
 - [ ] Dispatcher
 
