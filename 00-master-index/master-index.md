@@ -307,10 +307,11 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
 - [x] Dispatcher
 
 - [x] Main Dispatcher
-- [ ] IO Dispatcher
-- [ ] Default Dispatcher
-- [ ] Unconfined Dispatcher
+- [x] IO Dispatcher
+- [x] Default Dispatcher
+- [x] Unconfined Dispatcher
 
+- [ ] CPU Cores
 - [ ] Dispatcher Internals
     - Thread Pools
     - CPU Cores
