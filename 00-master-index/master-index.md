@@ -311,8 +311,8 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
 - [x] Default Dispatcher
 - [x] Unconfined Dispatcher
 
-- [ ] CPU Cores
-- [ ] Dispatcher Internals
+- [x] CPU Cores
+- [x] Dispatcher Internals
     - Thread Pools
     - CPU Cores
     - Parallelism Limits
@@ -320,7 +320,7 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
     - Why Default Uses CPU Count
     - Why IO Allows More Threads
 
-- [ ] Cancellation
+- [x] Cancellation
 - [ ] isActive
 - [ ] ensureActive
 - [ ] NonCancellable
