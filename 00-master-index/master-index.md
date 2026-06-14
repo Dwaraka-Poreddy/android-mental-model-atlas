@@ -328,9 +328,9 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
     
 - [x] CancellationException
 - [ ] Exception Handling
-    - What Happens When A Coroutine Fails?
     - try-catch
-    - Exception Propagation
+
+- [ ] Exception Propagation
 
 - [ ] CoroutineExceptionHandler
 
