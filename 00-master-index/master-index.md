@@ -321,8 +321,9 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
     - Why IO Allows More Threads
 
 - [x] Cancellation
-- [ ] isActive
-- [ ] ensureActive
+- [ ] Cancellation Checks
+    - isActive
+    - ensureActive
 - [ ] NonCancellable
 
 - [ ] try-catch
