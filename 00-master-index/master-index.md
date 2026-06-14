@@ -326,12 +326,15 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
     - ensureActive
 - [x] NonCancellable
     
-- [ ] CancellationException
-
+- [x] CancellationException
 - [ ] Exception Handling
+    - What Happens When A Coroutine Fails?
     - try-catch
-    - CoroutineExceptionHandler
-    - launch vs async Exceptions
+    - Exception Propagation
+
+- [ ] CoroutineExceptionHandler
+
+- [ ] launch vs async Exceptions
 
 ---
 ## DOC 3 — Reactive Streams & Flow
