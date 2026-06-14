@@ -592,13 +592,35 @@ A natural question appears:
 How Does A Coroutine Know It Has Been Cancelled?
 ```
 
+Remember:
+
+```text
+Cancellation Is Cooperative
+```
+
+which means the coroutine must somehow participate in the cancellation process.
+
+But:
+
+```text
+How Does It Detect That Cancellation Has Been Requested?
+```
+
 This question leads us to:
 
 ```text
-isActive
+Cancellation Checks
 ```
 
-which we will explore next.
+where we will explore tools such as:
+
+```text
+isActive
+
+ensureActive
+```
+
+that help a coroutine observe cancellation.
 
 ---
 
