@@ -70,7 +70,7 @@ finishes.
 A natural question appears:
 
 ```text
-Should The CoroutinexKeep Running?
+Should The Coroutine Keep Running?
 ```
 
 ---
