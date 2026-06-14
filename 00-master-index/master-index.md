@@ -327,41 +327,51 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
 - [x] NonCancellable
     
 - [x] CancellationException
-- [ ] Exception Handling
+- [x] Exception Handling
     - try-catch
 
-- [ ] Exception Propagation
+- [x] Exception Propagation
 
-- [ ] CoroutineExceptionHandler
+- [x] CoroutineExceptionHandler
 
-- [ ] launch vs async Exceptions
+- [x] launch vs async Exceptions
 
 ---
 ## DOC 3 — Reactive Streams & Flow
 
-**Purpose:** How Data Moves
+Purpose: How Data Moves
 
-### Concepts
+- [ ] Why Flow Exists
 
 - [ ] Flow
+
+- [ ] Flow vs Suspend Function
+
 - [ ] Cold Flow
 
-- [ ] emit
-- [ ] collect
-- [ ] Collector
+- [ ] Producing And Consuming Flow
+    - emit
+    - collect
 
-- [ ] map
-- [ ] filter
-- [ ] debounce
-- [ ] combine
-- [ ] zip
-- [ ] flatMapLatest
+- [ ] Flow Pipeline
+    - Producer
+    - Upstream
+    - Downstream
+    - Collector
 
-- [ ] Upstream
-- [ ] Downstream
+- [ ] Flow Operators
 
 - [ ] Intermediate Operators
+
 - [ ] Terminal Operators
+
+- [ ] Common Operators
+    - map
+    - filter
+    - debounce
+    - combine
+    - zip
+    - flatMapLatest
 
 - [ ] Flow Use Cases
 
