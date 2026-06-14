@@ -321,14 +321,17 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
     - Why IO Allows More Threads
 
 - [x] Cancellation
-- [ ] Cancellation Checks
+- [x] Cancellation Checks
     - isActive
     - ensureActive
-- [ ] NonCancellable
+- [x] NonCancellable
+    
+- [ ] CancellationException
 
-- [ ] try-catch
-- [ ] CoroutineExceptionHandler
-- [ ] launch vs async Exceptions
+- [ ] Exception Handling
+    - try-catch
+    - CoroutineExceptionHandler
+    - launch vs async Exceptions
 
 ---
 ## DOC 3 — Reactive Streams & Flow
