@@ -539,26 +539,74 @@ Suspend Functions
 A natural question appears:
 
 ```text
-How Does A Flow Actually Behave?
+How Does Flow Actually Provide Those Updates?
 ```
 
-Suppose we define:
+Suppose we have:
 
 ```kotlin
-val flow = ...
+fun observeUser(): Flow<User>
 ```
 
-Does it immediately start producing values?
+We know:
 
-Or does something need to happen first?
+```text
+Flow
+```
 
-This question leads us to:
+can provide:
+
+```text
+Ongoing Updates
+```
+
+over time.
+
+But:
+
+```text
+How Does That Actually Work?
+```
+
+How are new values produced?
+
+How are those values delivered?
+
+What causes updates to start flowing?
+
+Answering these questions requires us to understand one of the most important characteristics of Flow:
 
 ```text
 Cold Flow
 ```
 
 which we will explore next.
+
+---
+
+For this chapter, focus on one idea:
+
+```text
+Suspend Function
+```
+
+is usually the natural choice when you need:
+
+```text
+One Answer
+```
+
+---
+
+```text
+Flow
+```
+
+is usually the natural choice when you need:
+
+```text
+Ongoing Updates
+```
 
 ---
 
