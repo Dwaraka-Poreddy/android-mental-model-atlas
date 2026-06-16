@@ -361,10 +361,6 @@ Purpose: How Data Moves
 
 - [ ] Flow Operators
 
-- [ ] Intermediate Operators
-
-- [ ] Terminal Operators
-
 - [ ] Common Operators
     - map
     - filter
@@ -372,6 +368,10 @@ Purpose: How Data Moves
     - combine
     - zip
     - flatMapLatest
+
+- [ ] Intermediate Operators
+
+- [ ] Terminal Operators
 
 - [ ] Flow Use Cases
 
