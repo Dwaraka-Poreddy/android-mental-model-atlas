@@ -341,40 +341,45 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
 
 Purpose: How Data Moves
 
-- [ ] Why Flow Exists
+- [x] Why Flow Exists
 
-- [ ] Flow
+- [x] Flow
 
-- [ ] Flow vs Suspend Function
+- [x] Flow vs Suspend Function
 
-- [ ] Cold Flow
+- [x] Cold Flow
 
-- [ ] Producing And Consuming Flow
+- [x] Producing And Consuming Flow
     - emit
     - collect
 
-- [ ] Flow Pipeline
+- [x] Flow Pipeline
     - Producer
     - Upstream
     - Downstream
     - Collector
 
-- [ ] Flow Operators
+- [x] Flow Operators
 
-- [ ] Common Operators
+- [ ] Transforming Values
     - map
+
+- [ ] Filtering Values
     - filter
+
+- [ ] Reducing Noise
     - debounce
+
+- [ ] Combining Flows
     - combine
     - zip
-    - flatMapLatest
 
-- [ ] Intermediate Operators
+- [ ] Switching Streams
+    - flatMapLatest
 
 - [ ] Terminal Operators
 
 - [ ] Flow Use Cases
-
 ---
 
 ## DOC 4 — State Management
