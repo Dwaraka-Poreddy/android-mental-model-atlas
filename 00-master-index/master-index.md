@@ -379,11 +379,11 @@ Purpose: How Data Moves
 - [x] Keeping Only The Latest Result
     - flatMapLatest
 
-- [ ] Executing Flow Pipelines
+- [x] Executing Flow Pipelines
     - Intermediate Operators
     - Terminal Operators
 
-- [ ] Flow in Real Applications 
+- [x] Flow In Android Architecture
 ---
 
 ## DOC 4 — State Management
