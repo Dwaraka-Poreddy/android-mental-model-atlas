@@ -129,6 +129,8 @@ Problem
 
 Understanding the problem is more important than memorizing the solution.
 
+The strongest understanding is built when new concepts emerge naturally from concepts the reader already understands.
+
 ---
 
 # What Makes This Atlas Different?
@@ -274,9 +276,7 @@ The Atlas avoids introducing questions that a reader is unlikely to have natural
 Bad example:
 
 ```text
-launch And async Behave Differently.
-
-Why?
+launch And async Behave Differently. Why?
 ```
 
 The reader may not yet know they behave differently.
@@ -294,6 +294,16 @@ Do Failures Behave Differently?
 The question emerges naturally from existing knowledge.
 
 Questions should feel discovered rather than injected.
+
+Questions should emerge from the reader's current understanding rather than from future concepts.
+
+The reader should feel:
+
+"I was about to ask that."
+
+rather than:
+
+"Why are we suddenly talking about this?"
 
 ---
 
@@ -345,15 +355,20 @@ The goal is:
 Maximum Clarity With Minimum Words
 ```
 
+Previously established concepts should be referenced and built upon rather than re-explained.
+
 ---
 
-## The Reader Is Assumed To Be Intelligent
+## Respect The Reader
 
 The Atlas avoids:
 
+- Manufactured curiosity
 - Artificial suspense
-- Manufactured questions
 - Unnecessary repetition
+- Premature terminology
+
+The goal is to guide understanding rather than control the reading experience.
 
 The documentation should answer genuine questions rather than attempting to create them artificially.
 
@@ -407,6 +422,8 @@ Conceptual Understanding
 before implementation details.
 
 This prevents unnecessary confusion.
+
+A chapter should intentionally stay within its chosen abstraction level and avoid leaking implementation details from future chapters.
 
 ---
 
@@ -467,6 +484,158 @@ Do Failures Behave Differently?
 ```
 
 The second bridge uses existing knowledge to create curiosity.
+
+New ideas should feel like natural extensions of existing understanding rather than unrelated jumps.
+
+
+---
+
+## Teach Relationships Before Terminology
+
+Readers naturally understand relationships before vocabulary.
+
+Prefer teaching:
+
+```text
+Transforming Values
+↓
+map()
+```
+
+instead of starting with:
+
+```text
+map()
+↓
+Transformation
+```
+
+Similarly:
+
+```text
+Building Pipelines
+↓
+Intermediate Operators
+```
+
+and:
+
+```text
+Executing Pipelines
+↓
+Terminal Operators
+```
+
+are generally easier to understand than introducing terminology first.
+
+The Atlas prioritizes conceptual relationships over official naming.
+
+Terminology should label an understanding that already exists rather than create one.
+
+---
+
+## Concrete Before Abstract
+
+Readers reason more naturally about concrete examples than abstract ideas.
+
+Prefer introducing concepts through examples such as:
+
+```text
+Flow<User>
+
+Flow<SearchResults>
+
+Flow<List<Message>>
+```
+
+before discussing abstractions like:
+
+```text
+Representation
+
+State
+
+Events
+```
+
+Concrete examples should create intuition.
+
+Abstractions should organize that intuition rather than replace it.
+
+---
+
+## Optimize For Document Flow
+
+Every chapter contributes to the purpose of its document.
+
+Transitions should strengthen the progression:
+
+```text
+Chapter
+↓
+Document
+↓
+Next Document
+```
+
+rather than treating every chapter as an isolated lesson.
+
+A document should feel like one continuous story where each chapter builds naturally upon the previous one and contributes toward a shared goal.
+
+Individual chapters are important, but the reader should finish the document with a coherent mental model rather than a collection of disconnected concepts.
+
+---
+
+## Never Manufacture Curiosity
+
+Not every chapter naturally creates a question that leads to the next concept.
+
+If a genuine question exists, prefer the following progression:
+
+```text
+Current Understanding
+↓
+Natural Curiosity
+↓
+Next Concept
+```
+
+However, if the current chapter already feels complete and does not naturally create a follow-up question, prefer:
+
+```text
+Current Understanding
+↓
+Looking Ahead
+↓
+Next Area Of Study
+```
+
+rather than forcing a transition.
+
+The Atlas should never invent curiosity that the reader is unlikely to feel.
+
+Readers should finish a chapter thinking:
+
+> "I was naturally wondering about that."
+
+not:
+
+> "Why are we suddenly talking about this?"
+
+---
+
+## Respect The Reader's Timeline
+
+Every chapter should assume only the knowledge established so far.
+
+Avoid introducing:
+
+- Future APIs
+- Future terminology
+- Future comparisons
+- Future implementation details
+
+The strongest conceptual bridges are built entirely from concepts the reader already understands.
 
 ---
 
@@ -573,7 +742,10 @@ Some notable lessons:
 
 - A chapter is often too large before it becomes too small.
 - Questions should emerge naturally from existing knowledge.
+- Curiosity should never be manufactured.
 - Repetition frequently disguises itself as explanation.
+- Relationships are often easier to understand than terminology.
+- Concrete examples should introduce abstractions.
 - The best conceptual bridges use information the reader already knows.
 - Missing concepts often reveal themselves only after surrounding concepts are written.
 - Some sections deserve promotion into standalone chapters.
