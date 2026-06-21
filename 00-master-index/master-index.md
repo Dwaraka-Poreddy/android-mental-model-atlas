@@ -374,12 +374,14 @@ Purpose: How Data Moves
     - combine
     - zip
 
-- [ ] From Values To Flows
+- [x] From Values To Flows
 
-- [ ] Keeping Only The Latest Result
+- [x] Keeping Only The Latest Result
     - flatMapLatest
 
-- [ ] Terminal Operators
+- [ ] Building And Executing Flow Pipelines
+    - Intermediate Operators
+    - Terminal Operators
 
 - [ ] Flow in Real Applications 
 ---
