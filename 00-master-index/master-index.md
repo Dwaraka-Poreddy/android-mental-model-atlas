@@ -361,25 +361,27 @@ Purpose: How Data Moves
 
 - [x] Flow Operators
 
-- [ ] Transforming Values
+- [x] Transforming Values
     - map
 
-- [ ] Filtering Values
+- [x] Filtering Values
     - filter
 
-- [ ] Reducing Noise
+- [x] Reducing Noise
     - debounce
 
-- [ ] Combining Flows
+- [x] Combining Flows
     - combine
     - zip
+     
+- [ ] What starts a Flow?
 
-- [ ] Switching Streams
+- [ ] Keeping Only The Latest Work
     - flatMapLatest
 
 - [ ] Terminal Operators
 
-- [ ] Flow Use Cases
+- [ ] Flow in Real Applications 
 ---
 
 ## DOC 4 — State Management
