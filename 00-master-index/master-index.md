@@ -375,6 +375,8 @@ Purpose: How Data Moves
     - zip
 
 - [ ] From Values To Flows
+
+- [ ] Keeping Only The Latest Result
     - flatMapLatest
 
 - [ ] Terminal Operators
