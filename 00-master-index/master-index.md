@@ -373,10 +373,8 @@ Purpose: How Data Moves
 - [x] Combining Flows
     - combine
     - zip
-     
-- [ ] What starts a Flow?
 
-- [ ] Keeping Only The Latest Work
+- [ ] From Values To Flows
     - flatMapLatest
 
 - [ ] Terminal Operators
