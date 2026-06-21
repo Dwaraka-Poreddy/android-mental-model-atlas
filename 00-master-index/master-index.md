@@ -379,7 +379,7 @@ Purpose: How Data Moves
 - [x] Keeping Only The Latest Result
     - flatMapLatest
 
-- [ ] Building And Executing Flow Pipelines
+- [ ] Executing Flow Pipelines
     - Intermediate Operators
     - Terminal Operators
 
