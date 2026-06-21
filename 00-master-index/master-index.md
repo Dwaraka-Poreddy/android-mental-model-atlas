@@ -388,12 +388,12 @@ Purpose: How Data Moves
 
 ## DOC 4 — State Management
 
-**Purpose:** How State & Events Are Represented
-
-### Concepts
+Purpose: How State & Events Are Represented
 
 - [ ] State
 - [ ] State Holder
+
+- [ ] Why StateFlow Exists
 
 - [ ] StateFlow
 - [ ] MutableStateFlow
