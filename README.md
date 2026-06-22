@@ -639,7 +639,7 @@ The strongest conceptual bridges are built entirely from concepts the reader alr
 
 ---
 
-# Future Knowledge
+# Future Concepts & Side Notes
 
 The atlas is designed as a dependency graph, but readability always takes priority over strict dependency isolation.
 
