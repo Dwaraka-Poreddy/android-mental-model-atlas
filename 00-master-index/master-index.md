@@ -391,35 +391,41 @@ Purpose: How Data Moves
 Purpose: How State & Events Are Represented
 
 - [ ] State
+
 - [ ] State Holder
+
+- [ ] Characteristics Of State
+
+- [ ] State vs Event
 
 - [ ] Why StateFlow Exists
 
 - [ ] StateFlow
+
 - [ ] MutableStateFlow
+
 - [ ] StateFlow vs Flow
 
 - [ ] SharedFlow
+
 - [ ] MutableSharedFlow
+
 - [ ] Replay
 
 - [ ] Channel
+
 - [ ] Producer
+
 - [ ] Consumer
 
 - [ ] stateIn
+
 - [ ] initialValue
 
 - [ ] SharingStarted
-- [ ] Eagerly
-- [ ] Lazily
-- [ ] WhileSubscribed
-
-- [ ] State vs Event
-
-- [ ] Navigation Events
-- [ ] Toast Events
-- [ ] Snackbar Events
+    - Eagerly
+    - Lazily
+    - WhileSubscribed
 
 ---
 
