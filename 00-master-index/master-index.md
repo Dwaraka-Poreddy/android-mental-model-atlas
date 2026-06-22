@@ -390,33 +390,29 @@ Purpose: How Data Moves
 
 Purpose: How State & Events Are Represented
 
-- [ ] State
+- [x] State
 
-- [ ] State Holder
+- [x] State Holder
 
-- [ ] Characteristics Of State
+- [x] Characteristics Of State
 
-- [ ] State vs Event
+- [x] State vs Event
 
-- [ ] Why StateFlow Exists
+- [x] Why StateFlow Exists
 
-- [ ] StateFlow
+- [x] StateFlow
 
-- [ ] MutableStateFlow
+- [x] MutableStateFlow
 
-- [ ] StateFlow vs Flow
+- [x] StateFlow vs Flow
 
-- [ ] SharedFlow
+- [x] SharedFlow
 
-- [ ] MutableSharedFlow
+- [x] MutableSharedFlow
 
-- [ ] Replay
+- [x] Replay
 
-- [ ] Channel
-
-- [ ] Producer
-
-- [ ] Consumer
+- [x] Channel
 
 - [ ] stateIn
 
