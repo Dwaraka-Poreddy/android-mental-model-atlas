@@ -639,6 +639,49 @@ The strongest conceptual bridges are built entirely from concepts the reader alr
 
 ---
 
+# Future Knowledge
+
+The atlas is designed as a dependency graph, but readability always takes priority over strict dependency isolation.
+
+## Prefer Self-Contained Explanations
+
+Whenever possible, explain a concept using knowledge that has already been introduced.
+
+However, if a brief mention of a future concept significantly improves understanding, it is perfectly acceptable to introduce it as a black box.
+
+For example:
+
+```text
+Rotating an Android device recreates the current screen.
+```
+
+A reader does not need to understand the Android Lifecycle implementation at that moment. A simple explanation is sufficient, while the complete mental model can be built in a later document.
+
+## Side Notes
+
+Side notes may be used to provide optional context that improves understanding without interrupting the main learning flow.
+
+A good side note should:
+
+- Be visually separated from the main content
+- Be completely optional for understanding the current chapter
+- Avoid implementation details
+- Point readers to a future document when appropriate
+
+## Reader Understanding Over Rule Purity
+
+Documentation principles are guidelines, not constraints.
+
+If strictly following a rule makes an explanation less clear, prefer the explanation that provides the best reader experience.
+
+Always optimize for:
+
+```text
+Maximum Reader Understanding over Maximum Rule Purity
+```
+
+---
+
 # Repository Structure
 
 The atlas is organized into documents (folders) and concepts (files).
