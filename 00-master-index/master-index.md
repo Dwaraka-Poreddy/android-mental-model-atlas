@@ -414,11 +414,11 @@ Purpose: How State & Events Are Represented
 
 - [x] Channel
 
-- [ ] stateIn
+- [x] stateIn
 
-- [ ] initialValue
+- [x] initialValue
 
-- [ ] SharingStarted
+- [x] SharingStarted
     - Eagerly
     - Lazily
     - WhileSubscribed
