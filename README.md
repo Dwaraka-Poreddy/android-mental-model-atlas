@@ -718,6 +718,50 @@ The goal is to help the reader build a mental model first and compare implementa
 
 ---
 
+### Every Major Concept Should Build Code Fluency
+
+Each concept should be taught in four stages:
+
+```text
+✓ Looking Back
+
+✓ Observation
+
+✓ Natural Question
+
+✓ Problem Before API
+
+✓ One Major Idea
+
+✓ Mental Model
+
+✓ Minimal Code
+
+✓ Android Example
+
+✓ Production Code Recognition
+
+✓ How To Read It
+
+✓ Production Notes
+
+✓ Common Misconceptions
+
+✓ Putting Everything Together
+
+✓ Key Mental Model
+
+✓ Revision Table
+```
+
+Production snippets are not expected to be fully understood immediately.
+
+Their purpose is to gradually train the reader to recognize familiar concepts inside real Android code.
+
+By the end of the Atlas, a production codebase should feel like a composition of known ideas rather than unfamiliar syntax.
+
+---
+
 # Repository Structure
 
 The atlas is organized into documents (folders) and concepts (files).
