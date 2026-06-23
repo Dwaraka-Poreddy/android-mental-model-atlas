@@ -246,5 +246,5 @@ Application
 ### Next Concept
 
 ```text
-Fragment
+Lifecycle
 ```
