@@ -442,6 +442,7 @@ Purpose: How State & Events Are Represented
 
 - [x] Activity
 - [ ] Fragment
+- [ ] FragmentManager & Transactions
 
 ---
 
