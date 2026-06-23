@@ -429,25 +429,30 @@ Purpose: How State & Events Are Represented
 
 **Purpose:** Who Owns What
 
-
+---
 
 ### Part 1 — Application Ownership
 
 - [x] Android Process
 - [x] Application
 
+---
 
-
-### Part 2 — Screen Ownership
+### Part 2 — Screen Structure
 
 - [x] Activity
-- [ ] Lifecycle
-- [ ] Configuration Changes
 - [ ] Fragment
 
+---
 
+### Part 3 — Screen Lifetime
 
-### Part 3 — Screen State Ownership
+- [x] Lifecycle
+- [x] Configuration Changes
+
+---
+
+### Part 4 — Screen State Ownership
 
 - [ ] ViewModel
 - [ ] ViewModelStore
@@ -455,24 +460,24 @@ Purpose: How State & Events Are Represented
 - [ ] viewModelScope
 - [ ] SavedStateHandle
 
+---
 
-
-### Part 4 — Data Ownership
+### Part 5 — Data Ownership
 
 - [ ] Repository
 - [ ] Single Source of Truth
 
+---
 
-
-### Part 5 — Layers of State
+### Part 6 — Layers of State
 
 - [ ] UI State
 - [ ] Screen State
 - [ ] Business State
 
+---
 
-
-### Part 6 — Data Flow
+### Part 7 — Data Flow
 
 - [ ] Unidirectional Data Flow
 
