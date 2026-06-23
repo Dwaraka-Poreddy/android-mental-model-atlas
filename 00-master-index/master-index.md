@@ -455,9 +455,17 @@ Purpose: How State & Events Are Represented
 
 ### Part 4 — Screen State Ownership
 
-- [ ] ViewModel
+- [x] ViewModel
+
 - [ ] ViewModelStore
+      - preserves ViewModels
+      - lookup by key
+
 - [ ] ViewModel Lifecycle
+      - why ViewModelStore survives recreation
+      - Activity instance vs logical screen
+      - when ViewModels are actually destroyed
+
 - [ ] viewModelScope
 - [ ] SavedStateHandle
 
