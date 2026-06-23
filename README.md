@@ -682,6 +682,42 @@ Maximum Reader Understanding over Maximum Rule Purity
 
 ---
 
+### Prefer Building Over Comparing
+
+When introducing a new concept, prefer building understanding through discovery:
+
+```text
+Problem
+
+↓
+
+Observation
+
+↓
+
+Discovery
+
+↓
+
+Concept
+```
+
+rather than starting with:
+
+```text
+Concept A
+
+vs
+
+Concept B
+```
+
+Comparison chapters should exist only when they answer a question that naturally arises **after both concepts have already been understood**.
+
+The goal is to help the reader build a mental model first and compare implementations later.
+
+---
+
 # Repository Structure
 
 The atlas is organized into documents (folders) and concepts (files).
