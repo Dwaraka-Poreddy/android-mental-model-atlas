@@ -433,17 +433,17 @@ Purpose: How State & Events Are Represented
 
 ### Part 1 — Application Ownership
 
-- [ ] Android Process
-- [ ] Application
+- [x] Android Process
+- [x] Application
 
 
 
 ### Part 2 — Screen Ownership
 
-- [ ] Activity
-- [ ] Fragment
+- [x] Activity
 - [ ] Lifecycle
 - [ ] Configuration Changes
+- [ ] Fragment
 
 
 
