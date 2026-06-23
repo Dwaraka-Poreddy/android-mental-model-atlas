@@ -441,8 +441,8 @@ Purpose: How State & Events Are Represented
 ### Part 2 — Screen Structure
 
 - [x] Activity
-- [ ] Fragment
-- [ ] FragmentManager & Transactions
+- [x] Fragment
+- [x] FragmentManager & Transactions
 
 ---
 
@@ -457,17 +457,18 @@ Purpose: How State & Events Are Represented
 
 - [x] ViewModel
 
-- [ ] ViewModelStore
+- [x] ViewModelStore
       - preserves ViewModels
       - lookup by key
 
-- [ ] ViewModel Lifecycle
+- [x] ViewModel Lifecycle
       - why ViewModelStore survives recreation
       - Activity instance vs logical screen
       - when ViewModels are actually destroyed
 
 - [ ] viewModelScope
 - [ ] SavedStateHandle
+- [ ] ViewModel Scoping
 
 ---
 
