@@ -228,25 +228,23 @@ Purpose: How State & Events Are Represented
 
 **Purpose:** Ownership & Data Flow
 
----
-
-## Part 1 — Application Ownership
+### Part 1 — Application Ownership
 
 - [x] Android Process
 - [x] Application
 
-## Part 2 — Screen Structure
+### Part 2 — Screen Structure
 
 - [x] Activity
 - [x] Fragment
 - [x] FragmentManager & Transactions
 
-## Part 3 — Screen Lifetime
+### Part 3 — Screen Lifetime
 
 - [x] Lifecycle
 - [x] Configuration Changes
 
-## Part 4 — Screen State Ownership
+### Part 4 — Screen State Ownership
 
 - [x] ViewModel
 
@@ -263,19 +261,17 @@ Purpose: How State & Events Are Represented
 - [x] SavedStateHandle
 - [x] ViewModel Owners
 
-## Part 5 — Data Ownership
+### Part 5 — Data Ownership
 
 - [x] Repository
 - [x] Single Source of Truth
 
-## Part 6 — Layers of State
+### Part 6 — Layers of State
 
 - [x] UI State
 - [x] Business State
 
----
-
-## Part 7 — Data Flow
+### Part 7 — Data Flow
 
 - [x] Unidirectional Data Flow
 
@@ -283,33 +279,47 @@ Purpose: How State & Events Are Represented
 
 ## DOC 6 — Jetpack Compose
 
-**Purpose:** How Modern Android UI Works
+**Purpose:** How Modern Android UI Is Described And Updated
 
-### Concepts
+### Part 1 — A New Way Of Building UI
 
-- [ ] Composable
-- [ ] Declarative UI
-
+- [ ] Imperative UI vs Declarative UI
 - [ ] UI = f(State)
 
+### Part 2 — Composables
+
+- [ ] Composable
+- [ ] Composition
+- [ ] Composition Tree
+
+### Part 3 — Recomposition
+
 - [ ] Recomposition
-- [ ] Recomposition Triggers
+- [ ] What Triggers Recomposition
+- [ ] Recomposition Scope
+- [ ] Skipping Recomposition
+
+### Part 4 — Local State
 
 - [ ] remember
-
 - [ ] mutableStateOf
+- [ ] State<T>
+- [ ] MutableState<T>
 
-- [ ] State
-- [ ] MutableState
+### Part 5 — State Persistence
 
 - [ ] rememberSaveable
 
-- [ ] collectAsState
+### Part 6 — ViewModel State In Compose
 
 - [ ] StateFlow → Compose
+- [ ] collectAsState()
+
+### Part 7 — Choosing State Ownership
 
 - [ ] Local UI State
-- [ ] ViewModel State
+- [ ] ViewModel UI State
+
 
 ---
 
