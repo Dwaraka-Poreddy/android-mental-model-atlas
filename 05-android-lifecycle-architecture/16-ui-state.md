@@ -2,80 +2,85 @@
 
 ## Observation
 
-Suppose a Repository provides the following application data:
+A Repository owns application data.
 
-```kotlin
-data class User(
-    val firstName: String,
-    val lastName: String,
-    val birthYear: Int,
-    val premium: Boolean
-)
+```text
+UserRepository
+
+↓
+
+Current User
+```
+
+A screen, however, needs much more than application data.
+
+Consider a Login screen.
+
+The UI needs to know:
+
+```text
+Email
+
+Password
+
+Loading State
+
+Error Message
+
+Login Button Enabled
 ```
 
 A natural question appears:
 
 ```text
-Can The UI Render This Object Directly?
+Who Owns The Complete Current State Of This Screen?
 ```
-
-Sometimes it can.
-
-Often, it does not.
 
 ---
 
 ## A Simple Example
 
-The Repository provides:
+Suppose the Repository provides:
 
-```text
-firstName = "Dwaraka"
-
-lastName = "Poreddy"
-
-birthYear = 1998
-
-premium = true
+```kotlin
+data class User(
+    val firstName: String,
+    val lastName: String,
+    val premium: Boolean
+)
 ```
 
-The screen wants to display:
+The current screen also has:
 
 ```text
-Welcome Dwaraka
+User Input
 
-Age: 28
+↓
 
-Premium Member
+Email
+
+Password
+
+-------------------------
+
+Network Status
+
+↓
+
+Loading
+
+-------------------------
+
+Validation
+
+↓
+
+Login Enabled
 ```
 
-Notice the difference.
+The UI should not combine all of these pieces itself.
 
-The UI is not displaying:
-
-```text
-birthYear
-```
-
-It is displaying:
-
-```text
-Age
-```
-
-The UI is not displaying:
-
-```text
-premium = true
-```
-
-It is displaying:
-
-```text
-Premium Member Badge
-```
-
-The data has been transformed into something that is easier to render.
+Instead, the ViewModel produces one object representing the current screen.
 
 ---
 
@@ -84,12 +89,32 @@ The data has been transformed into something that is easier to render.
 UI State represents:
 
 ```text
-Exactly What The UI Needs To Render
+The Complete Current State Of A Screen Ready To Render
 ```
 
-It is designed for presentation,
+It combines:
 
-not for storage or business logic.
+```text
+Repository Data
+
++
+
+User Input
+
++
+
+UI Flags
+
++
+
+Loading State
+
++
+
+Error State
+```
+
+into a single object that the UI can render directly.
 
 ---
 
@@ -108,16 +133,20 @@ ViewModel
 
 ↓
 
+Transforms
+
+↓
+
 UI State
 
 ↓
 
-Compose Renders UI State
+Compose Renders It
 ```
 
 The Repository owns application data.
 
-The ViewModel transforms that data into UI State.
+The ViewModel owns UI State.
 
 The UI simply renders it.
 
@@ -126,34 +155,34 @@ The UI simply renders it.
 ## Minimal Code
 
 ```kotlin
-data class ProfileUiState(
-    val welcomeText: String,
-    val ageText: String,
-    val showPremiumBadge: Boolean
+data class LoginUiState(
+    val email: String,
+    val password: String,
+    val isLoading: Boolean,
+    val errorMessage: String?,
+    val isLoginEnabled: Boolean
 )
 ```
 
-This object contains exactly what the UI needs.
-
-Nothing more.
+This object represents everything the current screen needs.
 
 ---
 
 ## Production Code
 
 ```kotlin
-class ProfileViewModel(
+class LoginViewModel(
     private val repository: UserRepository
 ) : ViewModel() {
 
-    val uiState = ProfileUiState(
-        welcomeText = "Welcome ${user.firstName}",
-        ageText = "${calculateAge(user.birthYear)} years",
-        showPremiumBadge = user.premium
-    )
+    val uiState: StateFlow<LoginUiState> = ...
 
 }
 ```
+
+The ViewModel exposes a single UI State for the screen.
+
+The UI observes it and renders it.
 
 ---
 
@@ -162,56 +191,72 @@ class ProfileViewModel(
 Don't read:
 
 ```text
-ProfileUiState
+LoginUiState
 
 ↓
 
-welcomeText
+email
 
 ↓
 
-ageText
+password
+
+↓
+
+isLoading
 ```
 
 Read:
 
 ```text
-Repository
+ViewModel
 
 ↓
 
-Application Data
+Owns The Complete Current Screen State
 
 ↓
 
-ViewModel Transforms Data
-
-↓
-
-UI State
-
-↓
-
-UI Displays It
+UI Renders It
 ```
 
-UI State is a presentation model,
-
-not a repository model.
+Focus on responsibility rather than individual fields.
 
 ---
 
 ## Production Notes
 
 ```text
-• UI State contains only information required for rendering.
+• A ViewModel owns UI State.
 
-• It is often derived from Repository data.
+• UI State represents the complete current state of a screen.
 
-• Formatting, calculated values and visibility flags commonly belong in UI State.
+• UI State is commonly derived from Repository data, user interactions and transient UI conditions.
 
-• The UI should primarily render UI State instead of performing transformations itself.
+• The UI should primarily render UI State instead of deriving its own state.
 ```
+
+---
+
+## Note
+
+Many Android resources use the terms:
+
+```text
+UI State
+
+Screen State
+```
+
+interchangeably.
+
+Throughout this Atlas, they refer to the same concept:
+
+```text
+The Complete Current State Of A Screen Ready To Render
+```
+
+For consistency, this Atlas uses the term **UI State**.
 
 ---
 
@@ -220,11 +265,7 @@ not a repository model.
 ### Core Idea
 
 ```text
-UI State
-
-=
-
-Exactly What The UI Needs To Render
+UI State = The Complete Current State Of A Screen Ready To Render
 ```
 
 ### Mental Model
@@ -252,13 +293,17 @@ UI
 ### Production Recognition
 
 ```kotlin
-data class ProfileUiState(...)
+StateFlow<LoginUiState>
 ```
 
 ↓
 
 ```text
-Presentation Model Built For Rendering
+ViewModel
+
+↓
+
+Owns The Current UI State Of This Screen
 ```
 
 ### Previous Concept
@@ -270,5 +315,5 @@ Single Source Of Truth
 ### Next Concept
 
 ```text
-Screen State
+Business State
 ```
