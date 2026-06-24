@@ -466,9 +466,9 @@ Purpose: How State & Events Are Represented
       - Activity instance vs logical screen
       - when ViewModels are actually destroyed
 
-- [ ] viewModelScope
-- [ ] SavedStateHandle
-- [ ] ViewModel Scoping
+- [x] viewModelScope
+- [x] SavedStateHandle
+- [x] ViewModel Owners
 
 ---
 
