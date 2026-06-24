@@ -1,119 +1,88 @@
 # Android Mental Model Atlas
 
-A first-principles Android knowledge base focused on understanding concepts, mental models, architecture decisions, and the relationships between them.
+> **Build mental models, not API notes.**
 
-The goal of this repository is not to collect notes.
+The Android Mental Model Atlas is a first-principles knowledge base designed to help engineers understand Android deeply enough to confidently read, reason about and build production applications.
 
-The goal is to build a long-term understanding of Android development that remains useful years later.
+The goal is **durable understanding**, not memorization.
 
 ---
 
 # Vision
 
-Most technical resources focus on:
-
-```text
-What
-```
-
-and:
-
-```text
-How
-```
-
-This atlas focuses equally on:
-
-```text
-Why
-```
-
-Every concept in Android exists because a problem existed first.
-
-Understanding the problem often makes the solution obvious.
-
-The purpose of this repository is to build and preserve those mental models.
-
-The atlas is intended to remain useful for:
-
-- Revising Android concepts
-- Rebuilding forgotten knowledge
-- Understanding architecture decisions
-- Preparing for interviews
-- Onboarding to unfamiliar codebases
-- Understanding production Android systems
-
-The repository is designed as a knowledge graph rather than a collection of isolated notes.
-
----
-
-# Why This Repository Exists
-
-Modern Android development contains many interconnected concepts:
-
-- Processes
-- Threads
-- Coroutines
-- Flow
-- State Management
-- Lifecycle
-- ViewModel
-- Compose
-- Architecture Patterns
-
-These concepts are often taught independently.
-
-As a result, developers frequently learn:
-
-```text
-How To Use Something
-```
-
-without understanding:
-
-```text
-Why It Exists
-```
-
-or:
-
-```text
-What Problem It Solves
-```
-
-This repository exists to close that gap.
-
-For every concept, the atlas attempts to answer:
-
-- What is it?
-- Why was it created?
-- What problem does it solve?
-- What concepts should be understood before it?
-- What concepts naturally come after it?
-- What misconceptions commonly exist?
-- How does it fit into the larger Android ecosystem?
-
-The focus is understanding rather than memorization.
-
----
-
-# Core Philosophy
-
-Whenever a new concept is introduced, the atlas attempts to answer:
-
-1. What problem existed before this concept?
-2. Why was this concept created?
-3. What problem does it solve?
-4. What concepts should be understood before learning it?
-5. What concepts naturally come after it?
-
-The preferred learning path is:
+Every concept should answer:
 
 ```text
 Problem
+
 ↓
+
+Why It Exists
+
+↓
+
+Mental Model
+
+↓
+
+Production Recognition
+```
+
+rather than:
+
+```text
+API
+
+↓
+
+Definition
+
+↓
+
+Usage
+```
+
+The Atlas optimizes for:
+
+```text
+Understanding
+
+>
+
+Memorization
+```
+
+and
+
+```text
+Reasoning
+
+>
+
+Recall
+```
+
+---
+
+# 🔒 Non-Negotiable Principles
+
+If a document violates any of these principles, it is **not complete**.
+
+---
+
+## 1. Problem → Concept → API
+
+Always teach:
+
+```text
+Problem
+
+↓
+
 Concept
+
 ↓
+
 API
 ```
 
@@ -121,287 +90,215 @@ Never:
 
 ```text
 API
+
 ↓
+
 Concept
+
 ↓
+
 Problem
 ```
 
-Understanding the problem is more important than memorizing the solution.
-
-The strongest understanding is built when new concepts emerge naturally from concepts the reader already understands.
+The reader should want the concept before seeing the API.
 
 ---
 
-# What Makes This Atlas Different?
+## 2. One Chapter = One Big Idea
 
-The atlas is not intended to be:
+Every chapter should answer exactly one primary question.
+
+If it answers multiple major questions, split it.
+
+---
+
+## 3. Every Section Must Earn Its Place
+
+Before adding any section, ask:
 
 ```text
-A Cheat Sheet
+If I remove this section,
+
+does understanding decrease?
+```
+
+If the answer is **No**, remove it.
+
+---
+
+## 4. Every Paragraph Must Introduce A New Idea
+
+Repetition is not explanation.
+
+Prefer:
+
+```text
+Maximum Clarity
+
+With
+
+Minimum Words
 ```
 
 ---
 
-It is not intended to be:
+## 5. Mental Models > API Memorization
+
+Readers should remember:
 
 ```text
-A Collection Of Interview Notes
+Repository
+
+↓
+
+Owns Application Data
+```
+
+instead of:
+
+```kotlin
+class UserRepository(...)
 ```
 
 ---
 
-It is not intended to be:
+## 6. Production Recognition Is Mandatory
+
+Every concept should help the reader recognize the same idea inside production code.
+
+The objective is:
 
 ```text
-A List Of APIs
+Understand Code
+
+↓
+
+Not
+
+Memorize APIs
 ```
 
 ---
 
-Instead, it attempts to build:
+## 7. Curiosity Must Be Earned
+
+Every chapter should naturally create the next question.
 
 ```text
-Durable Mental Models
-```
+Question
 
-that remain useful even when APIs evolve.
+↓
 
-The repository prioritizes:
-
-```text
 Understanding
-```
 
-over:
-
-```text
-Memorization
-```
-
-and:
-
-```text
-Reasoning
-```
-
-over:
-
-```text
-Recall
-```
-
----
-
-# How Documents Are Written
-
-The Atlas follows a strict documentation methodology.
-
-Many of these principles were discovered and refined while writing the first 60 concepts of the repository.
-
----
-
-## Problem Before Concept Before API
-
-The preferred teaching order is:
-
-```text
-Problem
 ↓
-Concept
+
+Next Question
+```
+
+Never manufacture curiosity.
+
+---
+
+# 🧭 Design Principles
+
+These are strong guidelines.
+
+Breaking one should be intentional.
+
+---
+
+## Build On Existing Knowledge
+
+Prefer:
+
+```text
+Known Concept
+
 ↓
-API
+
+New Concept
 ```
 
-A reader should first understand:
+instead of introducing unrelated ideas.
+
+---
+
+## Concepts Before Terminology
+
+Teach:
 
 ```text
-Why Something Exists
-```
+Transforming Values
 
-before learning:
-
-```text
-How To Use It
-```
-
-For example:
-
-```text
-Who Owns This Coroutine?
 ↓
-CoroutineScope
+
+map()
 ```
 
-is preferred over:
+instead of:
 
 ```text
-CoroutineScope Definition
+map()
+
 ↓
-Usage Examples
-```
 
-Understanding the problem creates a reason for the solution to exist.
+Transformation
+```
 
 ---
 
-## One Chapter = One Idea
+## Concrete Before Abstract
 
-Every chapter should teach one primary idea.
-
-If a chapter starts answering multiple major questions, it should usually be split.
-
-Examples:
+Prefer:
 
 ```text
-Exception Handling
+Flow<User>
 ```
 
-and:
+before:
 
 ```text
-Exception Propagation
+Reactive Stream
 ```
 
-are separate concepts and therefore separate chapters.
+Concrete examples create intuition.
 
-The goal is to reduce cognitive load and improve clarity.
+Abstractions organize intuition.
 
 ---
 
-## Questions Must Be Earned
+## Ownership Before Implementation
 
-The Atlas avoids introducing questions that a reader is unlikely to have naturally.
-
-Bad example:
+Always identify:
 
 ```text
-launch And async Behave Differently. Why?
+Who Owns This?
 ```
 
-The reader may not yet know they behave differently.
-
-Preferred approach:
+before explaining:
 
 ```text
-launch Returns Job
-
-async Returns Deferred
-
-Do Failures Behave Differently?
+How Is It Implemented?
 ```
-
-The question emerges naturally from existing knowledge.
-
-Questions should feel discovered rather than injected.
-
-Questions should emerge from the reader's current understanding rather than from future concepts.
-
-The reader should feel:
-
-"I was about to ask that."
-
-rather than:
-
-"Why are we suddenly talking about this?"
 
 ---
 
-## Acknowledge Questions Before Deferring Them
+## Lifetime Before Internals
 
-Sometimes a concept naturally creates questions that belong to future chapters.
-
-In these situations the Atlas follows:
+Readers should first understand:
 
 ```text
-Acknowledge
-↓
-Defer
+How Long Does It Live?
 ```
 
-rather than:
-
-```text
-Ignore
-```
-
-Readers should feel that the gap is intentional.
-
-Not forgotten.
+before learning implementation details.
 
 ---
 
-## Repetition Is Not Explanation
+## Explicit Abstraction Level
 
-A concept should not be restated unless new information is being introduced.
-
-The Atlas continuously asks:
-
-```text
-Does This Section Introduce New Understanding?
-```
-
-If the answer is:
-
-```text
-No
-```
-
-the section should usually be removed.
-
-The goal is:
-
-```text
-Maximum Clarity With Minimum Words
-```
-
-Previously established concepts should be referenced and built upon rather than re-explained.
-
----
-
-## Respect The Reader
-
-The Atlas avoids:
-
-- Manufactured curiosity
-- Artificial suspense
-- Unnecessary repetition
-- Premature terminology
-
-The goal is to guide understanding rather than control the reading experience.
-
-The documentation should answer genuine questions rather than attempting to create them artificially.
-
----
-
-## Mental Models Are Prioritized
-
-Mental models often provide more long-term value than API descriptions.
-
-Examples:
-
-```text
-Family Relationships
-→ Parent Child Hierarchy
-
-House Construction
-→ Structured Concurrency
-
-Firefighter vs Incident Reporter
-→ try-catch vs CoroutineExceptionHandler
-```
-
-Mental models exist to improve reasoning and retention.
-
-They are not decorative analogies.
-
----
-
-## Explicit Abstraction Levels
-
-Many concepts can be explained at multiple levels.
-
-Examples:
+Clearly communicate whether the discussion is about:
 
 ```text
 Conceptual
@@ -411,498 +308,139 @@ Behavioral
 Implementation
 ```
 
-Every chapter should make its abstraction level clear.
-
-The Atlas generally teaches:
-
-```text
-Conceptual Understanding
-```
-
-before implementation details.
-
-This prevents unnecessary confusion.
-
-A chapter should intentionally stay within its chosen abstraction level and avoid leaking implementation details from future chapters.
+understanding.
 
 ---
 
-## Every Section Must Earn Its Place
+# ✨ Quality Enhancers
 
-Before adding a section, the following question is asked:
+These sections are optional.
 
-```text
-If This Section Is Removed Does Understanding Decrease?
-```
+They must earn their place.
 
-If the answer is:
+- Deep Dive
+- Production Code Reading
+- Platform Perspective
+- Common Misconceptions
 
-```text
-No
-```
-
-the section should usually be removed.
-
-This helps prevent documentation bloat.
+Use them only when they genuinely improve understanding.
 
 ---
 
-## Don't Reopen Solved Problems
+# 🚫 Anti-Patterns
 
-Once a concept solves a problem:
+Avoid:
 
-```text
-CoroutineScope
-↓
-Ownership
-```
-
-later chapters should build on that solution rather than repeatedly reintroducing the same problem.
-
-The atlas attempts to move forward through the dependency graph of concepts.
+- API-first teaching
+- Boilerplate sections
+- Manufactured curiosity
+- Reopening solved problems
+- Explaining the same idea multiple times
+- Examples that introduce no new understanding
 
 ---
 
-## Use Existing Knowledge To Build New Knowledge
+# 📋 Editorial Checklist
 
-The strongest conceptual bridges are built using ideas the reader already understands.
-
-Bad bridge:
+Before marking any chapter complete:
 
 ```text
-launch And async Handle Exceptions Differently
+□ Can the chapter be summarized in one sentence?
+
+□ Does it answer exactly one primary question?
+
+□ Does every section earn its place?
+
+□ Does every paragraph introduce a new idea?
+
+□ Does the reader naturally want the next concept?
+
+□ Does it teach a mental model rather than an API?
+
+□ Can the reader recognize it in production code?
+
+□ Would removing 30% reduce understanding?
 ```
 
-Good bridge:
-
-```text
-launch Returns Job
-
-async Returns Deferred
-
-Do Failures Behave Differently?
-```
-
-The second bridge uses existing knowledge to create curiosity.
-
-New ideas should feel like natural extensions of existing understanding rather than unrelated jumps.
-
+If any answer is **No**, revisit the chapter.
 
 ---
 
-## Teach Relationships Before Terminology
+# ⭐ The Atlas Test
 
-Readers naturally understand relationships before vocabulary.
-
-Prefer teaching:
-
-```text
-Transforming Values
-↓
-map()
-```
-
-instead of starting with:
-
-```text
-map()
-↓
-Transformation
-```
-
-Similarly:
-
-```text
-Building Pipelines
-↓
-Intermediate Operators
-```
-
-and:
-
-```text
-Executing Pipelines
-↓
-Terminal Operators
-```
-
-are generally easier to understand than introducing terminology first.
-
-The Atlas prioritizes conceptual relationships over official naming.
-
-Terminology should label an understanding that already exists rather than create one.
-
----
-
-## Concrete Before Abstract
-
-Readers reason more naturally about concrete examples than abstract ideas.
-
-Prefer introducing concepts through examples such as:
-
-```text
-Flow<User>
-
-Flow<SearchResults>
-
-Flow<List<Message>>
-```
-
-before discussing abstractions like:
-
-```text
-Representation
-
-State
-
-Events
-```
-
-Concrete examples should create intuition.
-
-Abstractions should organize that intuition rather than replace it.
-
----
-
-## Optimize For Document Flow
-
-Every chapter contributes to the purpose of its document.
-
-Transitions should strengthen the progression:
-
-```text
-Chapter
-↓
-Document
-↓
-Next Document
-```
-
-rather than treating every chapter as an isolated lesson.
-
-A document should feel like one continuous story where each chapter builds naturally upon the previous one and contributes toward a shared goal.
-
-Individual chapters are important, but the reader should finish the document with a coherent mental model rather than a collection of disconnected concepts.
-
----
-
-## Never Manufacture Curiosity
-
-Not every chapter naturally creates a question that leads to the next concept.
-
-If a genuine question exists, prefer the following progression:
-
-```text
-Current Understanding
-↓
-Natural Curiosity
-↓
-Next Concept
-```
-
-However, if the current chapter already feels complete and does not naturally create a follow-up question, prefer:
-
-```text
-Current Understanding
-↓
-Looking Ahead
-↓
-Next Area Of Study
-```
-
-rather than forcing a transition.
-
-The Atlas should never invent curiosity that the reader is unlikely to feel.
-
-Readers should finish a chapter thinking:
-
-> "I was naturally wondering about that."
-
-not:
-
-> "Why are we suddenly talking about this?"
-
----
-
-## Respect The Reader's Timeline
-
-Every chapter should assume only the knowledge established so far.
-
-Avoid introducing:
-
-- Future APIs
-- Future terminology
-- Future comparisons
-- Future implementation details
-
-The strongest conceptual bridges are built entirely from concepts the reader already understands.
-
----
-
-# Future Concepts & Side Notes
-
-The atlas is designed as a dependency graph, but readability always takes priority over strict dependency isolation.
-
-## Prefer Self-Contained Explanations
-
-Whenever possible, explain a concept using knowledge that has already been introduced.
-
-However, if a brief mention of a future concept significantly improves understanding, it is perfectly acceptable to introduce it as a black box.
-
-For example:
-
-```text
-Rotating an Android device recreates the current screen.
-```
-
-A reader does not need to understand the Android Lifecycle implementation at that moment. A simple explanation is sufficient, while the complete mental model can be built in a later document.
-
-## Side Notes
-
-Side notes may be used to provide optional context that improves understanding without interrupting the main learning flow.
-
-A good side note should:
-
-- Be visually separated from the main content
-- Be completely optional for understanding the current chapter
-- Avoid implementation details
-- Point readers to a future document when appropriate
-
-## Reader Understanding Over Rule Purity
-
-Documentation principles are guidelines, not constraints.
-
-If strictly following a rule makes an explanation less clear, prefer the explanation that provides the best reader experience.
-
-Always optimize for:
-
-```text
-Maximum Reader Understanding over Maximum Rule Purity
-```
-
----
-
-### Prefer Building Over Comparing
-
-When introducing a new concept, prefer building understanding through discovery:
-
-```text
-Problem
-
-↓
-
-Observation
-
-↓
-
-Discovery
-
-↓
-
-Concept
-```
-
-rather than starting with:
-
-```text
-Concept A
-
-vs
-
-Concept B
-```
-
-Comparison chapters should exist only when they answer a question that naturally arises **after both concepts have already been understood**.
-
-The goal is to help the reader build a mental model first and compare implementations later.
-
----
-
-### Every Major Concept Should Build Code Fluency
-
-Each concept should be taught in four stages:
-
-```text
-✓ Looking Back
-
-✓ Observation
-
-✓ Natural Question
-
-✓ Problem Before API
-
-✓ One Major Idea
-
-✓ Mental Model
-
-✓ Minimal Code
-
-✓ Android Example
-
-✓ Production Code Recognition
-
-✓ How To Read It
-
-✓ Production Notes
-
-✓ Common Misconceptions
-
-✓ Putting Everything Together
-
-✓ Key Mental Model
-
-✓ Revision Table
-```
-
-Production snippets are not expected to be fully understood immediately.
-
-Their purpose is to gradually train the reader to recognize familiar concepts inside real Android code.
-
-By the end of the Atlas, a production codebase should feel like a composition of known ideas rather than unfamiliar syntax.
-
----
-
-# Repository Structure
-
-The atlas is organized into documents (folders) and concepts (files).
-
-```text
-.
-├── README.md
-├── 00-master-index/
-├── 01-foundations/
-├── 02-coroutines-core/
-├── 03-flow/
-├── 04-state-management/
-├── 05-android-architecture/
-├── 06-compose-foundations/
-├── 07-advanced-compose/
-└── 08-production-android/
-```
-
----
-
-## Default Rule
-
-```text
-One Major Concept = One File
-```
+Every chapter should leave the reader with one memorable sentence.
 
 Examples:
 
 ```text
-process.md
-thread.md
-coroutine.md
-flow.md
-stateflow.md
-viewmodel.md
-remember.md
+CoroutineScope
+
+↓
+
+Owns Coroutines
 ```
 
-Supporting concepts may be grouped when they do not justify separate files.
+```text
+StateFlow
 
-The structure exists to support learning rather than enforce arbitrary organization.
+↓
 
----
+Always Has A Current Value
+```
 
-# How To Navigate
+```text
+Repository
 
-The recommended reading order follows concept dependencies rather than alphabetical ordering.
+↓
 
-Start here:
+Owns Application Data
+```
 
-👉 **[Master Index](./00-master-index/master-index.md)**
+```text
+UI State
 
-The Master Index contains:
+↓
 
-- Reading order
-- Progress tracking
-- Atlas structure
-- Current roadmap
-- Future expansion plans
+The Complete Current State
 
-The Master Index acts as the source of truth for the repository.
+Of A Screen
 
----
+Ready To Render
+```
 
-# Current Scope
+If a chapter does not produce an "Aha!" moment,
 
-The atlas currently covers or plans to cover:
-
-- Computer & Android Foundations
-- Coroutines Core
-- Reactive Streams & Flow
-- State Management
-- Android Lifecycle & Architecture
-- Compose Foundations
-- Advanced Compose
-- Production Android Architecture
-
-Future topics may include:
-
-- Navigation
-- Dependency Injection
-- Hilt
-- Room
-- WorkManager
-- Testing
-- Offline First Architecture
-- Modularization
-- Performance Optimization
-
-The repository is intentionally expandable.
-
----
-
-# Lessons Learned While Building The Atlas
-
-The Atlas itself evolved significantly while being written.
-
-Many of the current rules were discovered through mistakes and later refinements.
-
-Some notable lessons:
-
-- A chapter is often too large before it becomes too small.
-- Questions should emerge naturally from existing knowledge.
-- Curiosity should never be manufactured.
-- Repetition frequently disguises itself as explanation.
-- Relationships are often easier to understand than terminology.
-- Concrete examples should introduce abstractions.
-- The best conceptual bridges use information the reader already knows.
-- Missing concepts often reveal themselves only after surrounding concepts are written.
-- Some sections deserve promotion into standalone chapters.
-- Mental models often provide more long-term value than API descriptions.
-- Documentation structure should evolve when understanding evolves.
-
-The Atlas is therefore not only a knowledge base about Android.
-
-It is also an evolving experiment in how technical knowledge can be taught more effectively.
+it is probably explaining too much and teaching too little.
 
 ---
 
 # Philosophy Of Change
 
-This repository is a living document.
+The README is intentionally stable.
 
-Concepts may be:
+It changes only when we discover a better way to teach,
+not when we discover a new Android concept.
 
-- Expanded
-- Refined
-- Reorganized
-- Split into multiple chapters
-- Merged into larger concepts
+Concept documents evolve.
 
-as understanding grows.
+Editorial principles should remain small, opinionated and timeless.
 
-The structure exists to serve learning.
+---
 
-Learning does not exist to serve the structure.
+# Guiding Principle
+
+If following a rule makes the explanation worse,
+
+prioritize **reader understanding** over **rule purity**.
+
+The Atlas exists to help readers build mental models.
+
+The rules exist to help the Atlas.
+
+The Atlas does not exist to satisfy the rules.
 
 ---
 
 # Start Here
 
-➡️ **[Open the Master Index](./00-master-index/master-index.md)**
-
-The Master Index is the entry point and source of truth for the entire Android Mental Model Atlas.
+👉 Open the Master Index.
