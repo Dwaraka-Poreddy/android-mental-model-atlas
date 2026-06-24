@@ -364,6 +364,354 @@ ViewModel Rebuilds Screen State
 
 ---
 
+## Deep Dive
+
+### Mental Model vs Implementation
+
+To build an intuitive understanding, this chapter intentionally focuses on the mental model rather than Android's internal implementation.
+
+When we say:
+
+```text
+SavedStateHandle
+
+↓
+
+Remembers The Information Needed To Reconstruct Screen State
+```
+
+we are describing its architectural responsibility.
+
+The exact mechanism used by Android to preserve and restore that information is an implementation detail.
+
+For most application development, it is more important to understand **what responsibility it has** rather than **how Android internally implements it**.
+
+---
+
+### Lifetime
+
+Compare the lifetime of different kinds of state:
+
+```text
+Local Variable
+
+↓
+
+Function Lifetime
+
+-------------------------
+
+ViewModel Property
+
+↓
+
+ViewModel Lifetime
+
+-------------------------
+
+SavedStateHandle Value
+
+↓
+
+Screen Restoration Lifetime Managed By Android
+
+-------------------------
+
+Repository / Database
+
+↓
+
+Persistent Application Data
+```
+
+Every type of state has a different owner and therefore a different lifetime.
+
+---
+
+### Storage
+
+A natural question is:
+
+```text
+Where Is SavedStateHandle Actually Stored?
+```
+
+Conceptually:
+
+```text
+ViewModel
+
+↓
+
+Heap Memory (RAM)
+
+↓
+
+Live Screen State
+```
+
+and
+
+```text
+SavedStateHandle
+
+↓
+
+Managed By Android
+
+↓
+
+Available During System-driven Screen Recreation
+```
+
+The exact storage mechanism is intentionally abstracted away.
+
+Instead of thinking:
+
+```text
+SavedStateHandle
+
+↓
+
+Disk Cache
+```
+
+think:
+
+```text
+SavedStateHandle
+
+↓
+
+Small Backpack Carried By Android
+
+↓
+
+Given To The Next ViewModel
+```
+
+The architectural behavior is what matters:
+
+```text
+Save
+
+↓
+
+Process Recreation
+
+↓
+
+Restore
+```
+
+---
+
+### Scope
+
+SavedStateHandle belongs to a particular screen.
+
+```text
+Search Screen
+
+↓
+
+SavedStateHandle
+
+↓
+
+Search Query
+```
+
+It is **not** shared across the entire application.
+
+Its responsibility is limited to reconstructing the state of the screen that owns it.
+
+---
+
+### Size
+
+SavedStateHandle is intended for **small reconstruction information**, not complete application data.
+
+Good candidates:
+
+```text
+✓ Product ID
+
+✓ Search Query
+
+✓ Selected Tab
+
+✓ Selected Filter
+
+✓ Scroll Position
+
+✓ User Input
+```
+
+Poor candidates:
+
+```text
+✗ Entire Product Object
+
+✗ Search Results
+
+✗ User List
+
+✗ Bitmap
+
+✗ Large Network Response
+```
+
+If the information can be obtained again from a Repository or Database, it usually should not be stored inside SavedStateHandle.
+
+---
+
+### Common Scenarios
+
+#### Configuration Change
+
+```text
+Rotate Device
+
+↓
+
+Same ViewModel
+
+↓
+
+Same SavedStateHandle
+
+↓
+
+Same Screen State
+```
+
+SavedStateHandle is not required here because the ViewModel itself survives.
+
+---
+
+#### Background → Process Recreation
+
+```text
+User Presses Home
+
+↓
+
+Opens Other Applications
+
+↓
+
+Phone Runs Low On Memory
+
+↓
+
+Android Removes Background Process
+
+↓
+
+User Opens App Again
+
+↓
+
+New ViewModel
+
+↓
+
+SavedStateHandle Restored
+
+↓
+
+Repository Rebuilds Screen State
+```
+
+This is the primary scenario that SavedStateHandle is designed for.
+
+---
+
+#### User Leaves The Screen
+
+```text
+Search Screen
+
+↓
+
+Back Pressed
+
+↓
+
+Screen Removed
+
+↓
+
+SavedStateHandle Removed
+```
+
+There is no screen to reconstruct anymore.
+
+---
+
+#### Force Stop / Permanent App Removal
+
+```text
+Force Stop
+
+↓
+
+No Restoration Guarantee
+```
+
+SavedStateHandle is designed for **system-driven recreation**, not as a general persistence mechanism.
+
+---
+
+### Assumptions Used In This Chapter
+
+For simplicity, this Atlas intentionally uses the following mental model:
+
+```text
+SavedStateHandle
+
+↓
+
+Stores The Minimum Information Needed To Reconstruct Screen State
+```
+
+This is an architectural abstraction.
+
+Internally, Android manages the preservation and restoration of this information.
+
+Application code should rely on **the behavior** rather than on **the underlying implementation details**.
+
+The most important takeaway is:
+
+```text
+Repository
+
+↓
+
+Owns Data
+
+-------------------------
+
+SavedStateHandle
+
+↓
+
+Owns Reconstruction Information
+
+-------------------------
+
+ViewModel
+
+↓
+
+Owns Live Screen State
+```
+
+Each layer has a distinct responsibility.
+
+---
+
 ## Another Common Misconception
 
 A common misconception is:
