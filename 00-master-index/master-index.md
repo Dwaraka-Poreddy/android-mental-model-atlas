@@ -5,207 +5,6 @@
 
 ---
 
-# Vision
-
-The Android Mental Model Atlas is a long-term knowledge base built from first principles.
-
-Its purpose is not to serve as a collection of Android notes, but to build and preserve a deep understanding of Android development by documenting:
-
-- What each concept is
-- Why it exists
-- What problem it solves
-- How it relates to other concepts
-- Common misconceptions
-- Real-world usage patterns
-
-The goal is to create a resource that remains useful years later for:
-
-- Revising Android concepts
-- Understanding architecture decisions
-- Preparing for interviews
-- Onboarding to new projects
-- Rebuilding forgotten mental models
-
----
-
-# Core Philosophy
-
-Whenever a new concept is introduced, always ask:
-
-1. What problem existed before this concept?
-2. Why was this concept created?
-3. What problem does it solve?
-4. What concepts should be understood before learning it?
-5. What concepts naturally come after it?
-
-Understanding the problem is more important than memorizing the API.
-
----
-
-# Documentation Principles
-
-### Problem Before API
-
-Always teach:
-
-```text
-Problem
-↓
-Concept
-↓
-API
-```
-
-Never introduce an API before the reader understands the problem it solves.
-
----
-
-### One Chapter = One Idea
-
-A chapter should teach one primary idea.
-
-If a chapter starts teaching multiple major ideas, split it.
-
----
-
-### Don't Reopen Solved Problems
-
-Once a concept solves a problem:
-
-```text
-CoroutineScope
-↓
-Ownership
-```
-
-later chapters should build upon that solution rather than reintroducing the same problem.
-
----
-
-### Every Section Must Earn Its Place
-
-For every section ask:
-
-```text
-If I delete this section,
-
-Does the reader lose
-any understanding?
-```
-
-If the answer is:
-
-```text
-No
-```
-
-remove the section.
-
----
-
-### Avoid Repetition Disguised As Explanation
-
-A concept should not be re-explained unless new information is being introduced.
-
-Prefer:
-
-```text
-Maximum Clarity
-With Minimum Words
-```
-
-over exhaustive repetition.
-
----
-
-### Explicit Abstraction Level
-
-Every chapter should clearly state:
-
-```text
-What abstraction level
-we are discussing
-```
-
-This prevents confusion when deeper implementation details exist but are intentionally deferred.
-
----
-
-# Repository Entry Point
-
-The recommended starting points for this repository are:
-
-```text
-README.md
-↓
-00-master-index/master-index.md
-↓
-Concept Files
-```
-
----
-
-# Repository Structure Philosophy
-
-The atlas is organized into documents (folders) and concepts (files).
-
-## Default Rule
-
-```text
-One Major Concept = One File
-```
-
-Examples:
-
-```text
-program.md
-process.md
-thread.md
-coroutine.md
-flow.md
-stateflow.md
-viewmodel.md
-remember.md
-```
-
-Supporting concepts may be grouped inside a parent concept when they do not justify separate files.
-
-Examples:
-
-```text
-sharingstarted.md
-├─ Eagerly
-├─ Lazily
-└─ WhileSubscribed
-```
-
-```text
-cancellation.md
-├─ isActive
-├─ ensureActive
-└─ NonCancellable
-```
-
----
-
-# Linking Philosophy
-
-Use relative links whenever possible.
-
-Examples:
-
-```markdown
-[Flow](../03-flow/flow.md)
-
-[StateFlow](../04-state-management/stateflow.md)
-
-[ViewModel](../05-android-architecture/viewmodel.md)
-```
-
-The atlas should gradually evolve into a navigable knowledge graph rather than a collection of isolated notes.
-
----
-
 # Status Tracking
 
 The Master Index acts as the progress tracker for the entire atlas.
@@ -339,7 +138,7 @@ The atlas is designed as a dependency graph rather than an alphabetical referenc
 ---
 ## DOC 3 — Reactive Streams & Flow
 
-Purpose: How Data Moves
+Purpose: How Data Flows
 
 - [x] Why Flow Exists
 
@@ -427,7 +226,7 @@ Purpose: How State & Events Are Represented
 
 ## DOC 5 — Android Lifecycle & Architecture
 
-**Purpose:** Who Owns What
+**Purpose:** Ownership & Data Flow
 
 ---
 
@@ -472,17 +271,17 @@ Purpose: How State & Events Are Represented
 ## Part 6 — Layers of State
 
 - [x] UI State
-- [ ] Business State
+- [x] Business State
 
 ---
 
 ## Part 7 — Data Flow
 
-- [ ] Unidirectional Data Flow
+- [x] Unidirectional Data Flow
 
 ---
 
-## DOC 6 — Compose Foundations
+## DOC 6 — Jetpack Compose
 
 **Purpose:** How Modern Android UI Works
 
@@ -514,7 +313,7 @@ Purpose: How State & Events Are Represented
 
 ---
 
-## DOC 7 — Advanced Compose
+## DOC 7 — Production Compose Patterns
 
 **Purpose:** How Compose Works In Production
 
