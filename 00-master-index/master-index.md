@@ -471,8 +471,7 @@ Purpose: How State & Events Are Represented
 
 ## Part 6 — Layers of State
 
-- [ ] UI State
-- [ ] Screen State
+- [x] UI State
 - [ ] Business State
 
 ---
