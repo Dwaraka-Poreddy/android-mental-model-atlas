@@ -75,7 +75,9 @@ Payment
 Every screen needs:
 
 ```text
-Selected Items Coupon Total Price
+Selected Items
+Coupon
+Total Price
 ```
 
 Should every screen create its own ViewModel?
@@ -398,9 +400,7 @@ Context
 Multiple Components Share State
 ```
 
-Different platforms provide different APIs,
-
-but the underlying idea is the same:
+Different platforms provide different APIs, but the underlying idea is the same:
 
 ```text
 One Owner
@@ -517,21 +517,15 @@ Owner
 
 ↓
 
-Determines
-
-Lifetime
+Determines Lifetime
 
 ↓
 
-Determines
-
-Sharing
+Determines Sharing
 
 ↓
 
-Determines
-
-Destruction
+Determines Destruction
 ```
 
 ### Production Recognition
