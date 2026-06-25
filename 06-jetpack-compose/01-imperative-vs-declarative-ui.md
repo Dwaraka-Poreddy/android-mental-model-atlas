@@ -243,7 +243,53 @@ The developer describes.
 The framework updates.
 
 ---
+### Another Way To Think About It
 
+The same idea is often written like this:
+
+```text
+UI = f(State)
+```
+
+Read it as:
+
+```text
+UI Is A Function Of State
+```
+
+This does **not** mean the UI is a mathematical function.
+
+It simply means:
+
+```text
+Current State
+
+↓
+
+Current UI
+```
+
+If the state changes,
+
+the UI description naturally changes as well.
+
+Notice that this is exactly the same mental model we just learned.
+
+```text
+State
+
+↓
+
+UI Description
+
+↓
+
+Framework Updates UI
+```
+
+`UI = f(State)` is simply a shorter way of expressing it.
+
+---
 ## Why Compose Exists
 
 The traditional Android View system was primarily built around this style:
