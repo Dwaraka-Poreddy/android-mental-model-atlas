@@ -301,17 +301,17 @@ Purpose: How State & Events Are Represented
 
 - [x] remember
 - [x] mutableStateOf
-- [ ] Observable State`<T>`
-- [ ] MutableState<T>
+- [x] Observable State`<T>`
+- [x] MutableState<T>
 
 ### Part 5 — State Persistence
 
-- [ ] rememberSaveable
+- [x] rememberSaveable
 
 ### Part 6 — ViewModel State In Compose
 
-- [ ] StateFlow → Compose
-- [ ] collectAsState()
+- [x] StateFlow → Compose
+- [x] collectAsState()
 
 ### Part 7 — Choosing State Ownership
 
@@ -349,7 +349,7 @@ Purpose: How State & Events Are Represented
 
 ### Part 4 — Recomposition Internals
 
-- [ ] Recomposition Algorithm
+- [ ] How Recomposition Works
 - [ ] Restart Groups
 - [ ] Skipping
 - [ ] Stability
@@ -357,11 +357,11 @@ Purpose: How State & Events Are Represented
 
 ### Part 5 — Rendering Pipeline
 
+- [ ] Applier
 - [ ] LayoutNode
 - [ ] Measure
 - [ ] Layout
 - [ ] Draw
-- [ ] Applier
 
 ### Part 6 — Runtime Performance
 
