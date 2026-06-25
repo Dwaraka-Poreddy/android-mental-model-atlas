@@ -323,30 +323,106 @@ Purpose: How State & Events Are Represented
 
 ---
 
-## DOC 7 — Production Compose Patterns
+## DOC 7 — Inside Compose Runtime
 
-**Purpose:** How Compose Works In Production
+**Purpose:** How Compose Understands, Remembers And Updates Your UI
 
-### Concepts
+### Part 1 — Runtime Overview
 
+- [ ] From Composable Functions To Runtime
+- [ ] Composer
+- [ ] Composition Tree
+- [ ] UI Tree
+- [ ] Composition Tree vs UI Tree
+
+### Part 2 — Remembering UI
+
+- [ ] Slot Table
+- [ ] Groups
+- [ ] Anchors
+- [ ] How remember Works
+- [ ] Key Changes
+
+### Part 3 — State Observation
+
+- [ ] Snapshot System
+- [ ] SnapshotState
+- [ ] State Read Tracking
+- [ ] State Write Tracking
+
+### Part 4 — Recomposition Internals
+
+- [ ] Recomposition Algorithm
+- [ ] Restart Groups
+- [ ] Skipping
+- [ ] Stability
+- [ ] Stability Inference
+
+### Part 5 — Rendering Pipeline
+
+- [ ] LayoutNode
+- [ ] Measure
+- [ ] Layout
+- [ ] Draw
+- [ ] Applier
+
+### Part 6 — Runtime Performance
+
+- [ ] Why Recomposition Is Cheap
+- [ ] What Actually Gets Rebuilt
+- [ ] Avoiding Unnecessary Work
+
+---
+
+## DOC 8 — Production Compose Patterns
+
+**Purpose:** How Large Compose Applications Are Built
+
+### Part 1 — State Architecture
+
+- [ ] Stateless vs Stateful Composables
 - [ ] State Hoisting
+- [ ] Single Source Of Truth
+- [ ] UDF In Compose
+
+### Part 2 — Side Effects
 
 - [ ] LaunchedEffect
 - [ ] SideEffect
 - [ ] DisposableEffect
+- [ ] rememberCoroutineScope
+- [ ] rememberUpdatedState
+
+### Part 3 — State Helpers
 
 - [ ] produceState
 - [ ] derivedStateOf
+- [ ] snapshotFlow
 
-- [ ] Stability
-
-- [ ] Recomposition Optimization
+### Part 4 — Lifecycle Awareness
 
 - [ ] collectAsStateWithLifecycle
+- [ ] Lifecycle-aware Collection
+- [ ] repeatOnLifecycle In Compose
+
+### Part 5 — Compose Performance Patterns
+
+- [ ] Keys
+- [ ] Lazy Lists
+- [ ] Stable Models
+- [ ] Immutable Models
+- [ ] Avoiding Unnecessary Recomposition
+
+### Part 6 — Large Screen Design
+
+- [ ] Screen Decomposition
+- [ ] Reusable UI Components
+- [ ] Design System
+- [ ] Theming
 
 ---
 
-## DOC 8 — Production Android Architecture
+## DOC 9 — Production Android Architecture
 
 **Purpose:** How Real Android Apps Are Built
 
@@ -382,7 +458,7 @@ Purpose: How State & Events Are Represented
 
 ---
 
-## DOC 9 — Performance, Debugging & Production Diagnostics
+## DOC 10 — Performance, Debugging & Production Diagnostics
 
 **Purpose:** How Real Apps Fail And How Engineers Investigate Them
 
