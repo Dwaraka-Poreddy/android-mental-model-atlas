@@ -301,7 +301,7 @@ Purpose: How State & Events Are Represented
 
 - [x] remember
 - [x] mutableStateOf
-- [ ] Observable State`<`T`>`
+- [ ] Observable State`<T>`
 - [ ] MutableState<T>
 
 ### Part 5 — State Persistence
