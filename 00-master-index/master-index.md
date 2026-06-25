@@ -293,15 +293,15 @@ Purpose: How State & Events Are Represented
 
 ### Part 3 — Recomposition
 
-- [ ] Recomposition
-- [ ] Recomposition Scope
-- [ ] Skipping Recomposition
+- [x] Recomposition
+- [x] Recomposition Scope
+- [x] Skipping Recomposition
 
 ### Part 4 — Local State
 
-- [ ] remember
-- [ ] mutableStateOf
-- [ ] State<T>
+- [x] remember
+- [x] mutableStateOf
+- [ ] Observable State`<`T`>`
 - [ ] MutableState<T>
 
 ### Part 5 — State Persistence
