@@ -283,19 +283,17 @@ Purpose: How State & Events Are Represented
 
 ### Part 1 — A New Way Of Building UI
 
-- [ ] Imperative UI vs Declarative UI
-- [ ] UI = f(State)
+- [x] Imperative UI vs Declarative UI (includes UI = f(State))
 
 ### Part 2 — Composables
 
-- [ ] Composable
-- [ ] Composition
-- [ ] Composition Tree
+- [x] Composable
+- [x] Composition
+- [x] Composition Tree
 
 ### Part 3 — Recomposition
 
 - [ ] Recomposition
-- [ ] What Triggers Recomposition
 - [ ] Recomposition Scope
 - [ ] Skipping Recomposition
 
@@ -319,7 +317,6 @@ Purpose: How State & Events Are Represented
 
 - [ ] Local UI State
 - [ ] ViewModel UI State
-
 
 ---
 
