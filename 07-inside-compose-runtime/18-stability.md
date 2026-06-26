@@ -4,7 +4,13 @@
 
 In the previous chapter,
 
-we learned that Compose compares a composable's inputs before deciding whether to skip recomposition.
+we learned that when recomposition reaches a composable,
+
+Compose doesn't immediately execute it.
+
+Instead,
+
+it first compares its inputs.
 
 ```text
 Reached Composable
@@ -21,46 +27,74 @@ Skip or Recompose
 A natural question appears.
 
 ```text
-Compose compares inputs.
+Suppose Compose Cannot Trust One Of Those Inputs.
 
 ↓
 
-But how does it know those comparisons can be trusted?
+What Happens?
 ```
+
+---
+
+## The Answer
+
+Compose always chooses correctness over performance.
+
+If it isn't confident that an input can be safely compared,
+
+it plays it safe.
+
+```text
+Can't Trust The Comparison
+
+↓
+
+Don't Skip
+
+↓
+
+Recompose
+```
+
+Even if nothing actually changed,
+
+Compose would rather perform an unnecessary recomposition
+
+than accidentally skip one that was required.
 
 ---
 
 ## A Thought Experiment
 
-Imagine someone hands you a folder and asks:
+Imagine someone asks:
 
 > "Has anything inside this folder changed since yesterday?"
 
-If the folder contains only one sheet of paper,
+If the folder contains a single sheet of paper,
 
-it's easy to compare.
+it's easy to answer.
 
 Now imagine the folder contains hundreds of papers,
 
-photos,
-
 receipts,
+
+photos,
 
 and sticky notes.
 
-Even if the folder looks the same,
+Even if the folder itself looks identical,
 
-you can't confidently assume nothing inside it changed.
+you can't confidently say that nothing inside changed.
 
-Sometimes,
+When you're unsure,
 
-you simply don't have enough information to trust the comparison.
+the safest decision is to inspect it again.
+
+Compose follows exactly the same principle.
 
 ---
 
 ## Connecting It To Compose
-
-Compose faces the same challenge.
 
 Imagine this composable.
 
@@ -68,77 +102,214 @@ Imagine this composable.
 Header(user)
 ```
 
-Before skipping recomposition,
+Suppose yesterday,
 
-Compose needs confidence that `user` hasn't meaningfully changed.
-
-For simple values like:
+`user` looked like this.
 
 ```kotlin
-Int
-String
-Boolean
+User(
+    name = "John",
+    age = 25
+)
 ```
 
-this is straightforward.
+Today,
 
-For larger objects,
+someone changes:
 
-it's much harder.
+```kotlin
+user.age++
+```
 
-Compose needs to know whether comparing that object is reliable.
+The object is still the same object,
 
-That idea is called **Stability**.
+but something inside it changed.
+
+Compose now has a problem.
+
+```text
+Can I Trust That Comparing This Object Is Enough?
+```
+
+If the answer is **No**,
+
+Compose plays it safe.
+
+It recomposes.
 
 ---
 
-## A New Mental Model
+## This Is What Stability Means
 
-Think of Stability as a promise.
+A **stable** type is simply a type that Compose trusts when making recomposition decisions.
+
+Think of it like this.
 
 ```text
 Stable Type
 
 ↓
 
-Safe To Compare
+Compose Can Trust It
 
 ↓
 
-Safe To Reuse
+Safe To Skip If Nothing Changed
 ```
 
-If that promise holds,
-
-Compose can confidently skip recomposition when nothing has changed.
-
----
-
-## Why Stability Exists
-
-Imagine Compose couldn't trust its comparisons.
-
-Whenever it wasn't sure whether an object had changed,
-
-it would have to recompose the composable just to be safe.
-
-Stability allows Compose to safely avoid unnecessary work.
-
----
-
-## What Stability Does NOT Mean
-
-Stability does **not** mean:
+An **unstable** type is the opposite.
 
 ```text
-The Object Can Never Change
+Unstable Type
+
+↓
+
+Compose Cannot Trust It
+
+↓
+
+Play It Safe
+
+↓
+
+Recompose
 ```
 
-Instead,
+Notice something important.
 
-it means Compose can reliably determine whether a meaningful change has occurred.
+Compose isn't saying the object is "bad."
 
-That's all it needs to make safe recomposition decisions.
+It's simply saying:
+
+> "I can't safely optimize around this object."
+
+---
+
+## How Does Compose Decide?
+
+A natural question appears.
+
+```text
+How Does Compose Know Whether A Type Is Stable?
+```
+
+Most of the time,
+
+Compose figures it out automatically.
+
+It analyzes your types and looks for clues such as:
+
+- Are the properties immutable (`val`)?
+- Are the properties themselves stable?
+- Does the type obey Compose's stability rules?
+
+This process is called **Stability Inference**.
+
+Most developers never need to think about it.
+
+---
+
+## How Do I Know If Compose Thinks My Type Is Unstable?
+
+As a developer,
+
+you usually don't guess.
+
+You discover it when:
+
+- Android Studio warns about unstable parameters.
+- Compose compiler reports mark a type as unstable.
+- You investigate unnecessary recompositions.
+- Performance profiling shows more recompositions than expected.
+
+In other words,
+
+this usually becomes important during performance optimization,
+
+not while building your first Compose screen.
+
+---
+
+## Can I Help Compose?
+
+Yes.
+
+Most of the time, Compose can determine stability automatically.
+
+When it can't, there are several ways developers can help.
+
+### Prefer immutable models
+
+Instead of:
+
+```kotlin
+class User(
+    var name: String
+)
+```
+
+prefer:
+
+```kotlin
+data class User(
+    val name: String
+)
+```
+
+Immutable models are much easier for Compose to reason about.
+
+---
+
+### Use immutable collections
+
+Prefer immutable collections where appropriate instead of mutable ones.
+
+---
+
+### Advanced Stability Tools
+
+Compose also provides advanced mechanisms such as:
+
+- `@Immutable`
+- `@Stable`
+
+These allow developers to explicitly communicate stability information to the Compose Runtime when automatic inference isn't sufficient.
+
+We're intentionally **not** covering them in this chapter.
+
+To understand when to use them, how they differ, the contracts they impose, and the common mistakes to avoid, we'll study them in detail in **Doc 8 — Production Compose Patterns**, where they naturally fit alongside other performance optimization techniques.
+
+For now,
+
+it's enough to know that these tools exist and that they allow developers to provide additional stability information when necessary.
+
+---
+
+## The Bigger Picture
+
+Stability is not about making your code "correct."
+
+Your UI works perfectly even with unstable types.
+
+Stability is about helping Compose perform fewer unnecessary recompositions.
+
+```text
+Stable Types
+
+↓
+
+Better Opportunities To Skip Recomposition
+
+↓
+
+Better Performance
+```
+
+Correctness comes first.
+
+Performance comes second.
+
+Compose never sacrifices correctness just to skip more work.
 
 ---
 
@@ -153,13 +324,13 @@ Stable Type
 don't think:
 
 ```text
-Just Another Compose Term
+Just Another Compose Optimization
 ```
 
 think:
 
 ```text
-A type that Compose can safely compare when deciding whether to skip recomposition.
+A Type Compose Can Trust When Deciding Whether To Skip Recomposition.
 ```
 
 ---
@@ -173,59 +344,85 @@ Stability
 
 ↓
 
-Reliable Comparisons
+Trust Comparisons
 ```
 
 ### Mental Model
 
 ```text
-Stable Type
+Stable
 
 ↓
 
-Safe To Compare
+Trust
 
 ↓
 
-Safe To Skip
+Possible To Skip
+
+------------------------
+
+Unstable
+
+↓
+
+Don't Trust
+
+↓
+
+Play It Safe
+
+↓
+
+Recompose
 ```
 
-### Why It Exists
+### Why It Matters
 
 ```text
-Trust Comparisons
+Better Stability
 
 ↓
 
-Avoid Unnecessary Recomposition
-```
-
-### Production Recognition
-
-```text
-Stable Type
-```
+More Safe Skipping
 
 ↓
 
+Better Performance
+```
+
+### Developer Perspective
+
 ```text
-Compose can safely trust comparisons.
+Compose Can't Trust My Type
+
+↓
+
+Can I Help?
+
+↓
+
+Usually Yes
 ```
 
 ---
 
 ## One Remaining Question
 
-Compose can safely skip recomposition only if it knows a type is stable.
+We've now learned how Compose decides whether it can safely skip recomposition.
 
 A natural question appears.
 
 ```text
-How does Compose determine whether a type is stable?
+After Recomposition Finishes,
+
+↓
+
+Where Does The Updated UI Actually Live?
 ```
 
-That leads us to the next concept.
+That leads us to the next part of the document.
 
 ```text
-Stability Inference
+LayoutNode
 ```
