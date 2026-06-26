@@ -344,65 +344,90 @@ Purpose: How State & Events Are Represented
 
 ### Part 5 — Rendering Pipeline
 
-- [ ] Applier
-- [ ] LayoutNode
-- [ ] Measure
-- [ ] Layout
-- [ ] Draw
-
-### Part 6 — Runtime Performance
-
-- [ ] Why Recomposition Is Cheap
-- [ ] What Actually Gets Rebuilt
-- [ ] Avoiding Unnecessary Work
+- [x] LayoutNode
+- [x] Measure
+- [x] Layout
+- [x] Draw
+- [x] Applier
 
 ---
 
 ## DOC 8 — Production Compose Patterns
 
-**Purpose:** How Large Compose Applications Are Built
+**Purpose:** How Experienced Android Engineers Design Compose Applications
 
-### Part 1 — State Architecture
+### Part 1 — Working With The Runtime
+
+You've learned how the Compose Runtime works.
+
+Now learn how to write code that works *with* the runtime instead of against it.
+
+- [ ] Why Recomposition Is Cheap
+- [ ] What Actually Gets Rebuilt
+- [ ] Thinking In Recomposition
+- [ ] Common Recomposition Myths
+
+### Part 2 — Designing Stateful UI
+
+Where should state actually live?
 
 - [ ] Stateless vs Stateful Composables
 - [ ] State Hoisting
-- [ ] Single Source Of Truth
-- [ ] UDF In Compose
+- [ ] Choosing State Ownership
+- [ ] State Hoisting Patterns
 
-### Part 2 — Side Effects
+### Part 3 — Effects & Lifecycle
 
+Composable functions are supposed to describe UI.
+
+So where does real work happen?
+
+- [ ] Why Side Effects Exist
 - [ ] LaunchedEffect
 - [ ] SideEffect
 - [ ] DisposableEffect
 - [ ] rememberCoroutineScope
 - [ ] rememberUpdatedState
 
-### Part 3 — State Helpers
+### Part 4 — Advanced State APIs
+
+How do we bridge Compose with asynchronous and derived state?
 
 - [ ] produceState
 - [ ] derivedStateOf
 - [ ] snapshotFlow
 
-### Part 4 — Lifecycle Awareness
+### Part 5 — Lifecycle Integration
+
+Compose doesn't replace Android.
+
+How should the two cooperate?
 
 - [ ] collectAsStateWithLifecycle
 - [ ] Lifecycle-aware Collection
-- [ ] repeatOnLifecycle In Compose
+- [ ] repeatOnLifecycle
+- [ ] Compose Navigation Lifecycle (optional)
 
-### Part 5 — Compose Performance Patterns
+### Part 6 — Performance Engineering
+
+How do experienced Compose developers write efficient UI?
 
 - [ ] Keys
-- [ ] Lazy Lists
-- [ ] Stable Models
 - [ ] Immutable Models
-- [ ] Avoiding Unnecessary Recomposition
+- [ ] Stability Annotations
+- [ ] Lazy Lists
+- [ ] Measuring Recomposition
+- [ ] Performance Anti-patterns
 
-### Part 6 — Large Screen Design
+### Part 7 — Scaling Compose
+
+How do large teams organize thousands of composables?
 
 - [ ] Screen Decomposition
 - [ ] Reusable UI Components
 - [ ] Design System
 - [ ] Theming
+- [ ] Folder Structure
 
 ---
 
