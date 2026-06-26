@@ -5,18 +5,6 @@
 
 ---
 
-# Status Tracking
-
-The Master Index acts as the progress tracker for the entire atlas.
-
-```text
-[ ] Not Yet Written
-
-[x] Completed
-```
-
----
-
 # Reading Order
 
 Documents should generally be read in the order listed below because later concepts depend on earlier concepts.
@@ -315,8 +303,8 @@ Purpose: How State & Events Are Represented
 
 ### Part 7 — Choosing State Ownership
 
-- [ ] Local UI State
-- [ ] ViewModel UI State
+- [x] Local UI State
+- [x] ViewModel UI State
 
 ---
 
@@ -326,34 +314,33 @@ Purpose: How State & Events Are Represented
 
 ### Part 1 — Runtime Overview
 
-- [ ] From Composable Functions To Runtime
-- [ ] Composer
-- [ ] Composition Tree
-- [ ] UI Tree
-- [ ] Composition Tree vs UI Tree
+- [x] From Composable Functions To Runtime
+- [x] Composer
+- [x] Composition Tree
+- [x] UI Tree
+- [x] Composition Tree vs UI Tree
 
 ### Part 2 — Remembering UI
 
-- [ ] Slot Table
-- [ ] Groups
-- [ ] Anchors
-- [ ] How remember Works
-- [ ] Key Changes
+- [x] Slot Table
+- [x] Groups
+- [x] Anchors
+- [x] How remember Works
+- [x] Key Changes
 
 ### Part 3 — State Observation
 
-- [ ] Snapshot System
-- [ ] SnapshotState
-- [ ] State Read Tracking
-- [ ] State Write Tracking
+- [x] Snapshot System
+- [x] SnapshotState
+- [x] State Read Tracking
+- [x] State Write Tracking
 
 ### Part 4 — Recomposition Internals
 
-- [ ] How Recomposition Works
-- [ ] Restart Groups
-- [ ] Skipping
-- [ ] Stability
-- [ ] Stability Inference
+- [x] How Recomposition Works
+- [x] Restart Groups
+- [x] Skipping
+- [x] Stability
 
 ### Part 5 — Rendering Pipeline
 
