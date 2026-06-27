@@ -380,9 +380,9 @@ Purpose: How State & Events Are Represented
 - [x] LaunchedEffect
 - [x] Keys & Identity
 - [x] DisposableEffect
-- [ ] Synchronizing External State (`SideEffect`)
-- [ ] rememberCoroutineScope
-- [ ] rememberUpdatedState
+- [x] Synchronizing External State (`SideEffect`)
+- [x] rememberCoroutineScope
+- [x] rememberUpdatedState
 
 ### Part 4 — State Transformation
 
