@@ -368,9 +368,9 @@ Purpose: How State & Events Are Represented
 **Purpose:** Learn how to decide where state belongs before writing any code.
 
 - [x] Choosing State Ownership
-- [ ] Stateless vs Stateful Composables
-- [ ] State Hoisting
-- [ ] State Hoisting Patterns
+- [x] Stateless vs Stateful Composables
+- [x] State Hoisting
+- [x] State Ownership Patterns
 
 ### Part 3 — Side Effects
 
