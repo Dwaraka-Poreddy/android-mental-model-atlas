@@ -404,7 +404,6 @@ Purpose: How State & Events Are Represented
 
 **Purpose:** Learn how the Compose Runtime minimizes work and how experienced engineers write highly efficient UI.
 
-- [ ] Stable vs Unstable Types
 - [ ] Immutable Models
 - [ ] Stability Annotations (`@Immutable`, `@Stable`)
 - [ ] Lazy List Item Keys
