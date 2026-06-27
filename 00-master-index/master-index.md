@@ -356,31 +356,25 @@ Purpose: How State & Events Are Represented
 
 **Purpose:** How Experienced Android Engineers Design Compose Applications
 
-### Part 1 — Working With The Runtime
+### Part 1 — Thinking In Recomposition
 
-You've learned how the Compose Runtime works.
+**Purpose:** Develop the mental model experienced Compose developers use while reasoning about performance.
 
-Now learn how to write code that works *with* the runtime instead of against it.
+- [x] Recomposition Boundaries
+- [x] Recomposition Cost
 
-- [ ] Why Recomposition Is Cheap
-- [ ] What Actually Gets Rebuilt
-- [ ] Thinking In Recomposition
-- [ ] Common Recomposition Myths
+### Part 2 — State Architecture
 
-### Part 2 — Designing Stateful UI
+**Purpose:** Learn how to decide where state belongs before writing any code.
 
-Where should state actually live?
-
+- [x] Choosing State Ownership
 - [ ] Stateless vs Stateful Composables
 - [ ] State Hoisting
-- [ ] Choosing State Ownership
 - [ ] State Hoisting Patterns
 
-### Part 3 — Effects & Lifecycle
+### Part 3 — Side Effects
 
-Composable functions are supposed to describe UI.
-
-So where does real work happen?
+**Purpose:** Learn how composables safely interact with the outside world.
 
 - [ ] Why Side Effects Exist
 - [ ] LaunchedEffect
@@ -389,9 +383,9 @@ So where does real work happen?
 - [ ] rememberCoroutineScope
 - [ ] rememberUpdatedState
 
-### Part 4 — Advanced State APIs
+### Part 4 — State Helpers
 
-How do we bridge Compose with asynchronous and derived state?
+**Purpose:** Learn how to derive, bridge, and transform state efficiently.
 
 - [ ] produceState
 - [ ] derivedStateOf
@@ -399,29 +393,25 @@ How do we bridge Compose with asynchronous and derived state?
 
 ### Part 5 — Lifecycle Integration
 
-Compose doesn't replace Android.
-
-How should the two cooperate?
+**Purpose:** Learn how Compose cooperates with the Android lifecycle.
 
 - [ ] collectAsStateWithLifecycle
 - [ ] Lifecycle-aware Collection
 - [ ] repeatOnLifecycle
-- [ ] Compose Navigation Lifecycle (optional)
 
 ### Part 6 — Performance Engineering
 
-How do experienced Compose developers write efficient UI?
+**Purpose:** Learn how experienced engineers write Compose that remains fast at scale.
 
 - [ ] Keys
 - [ ] Immutable Models
-- [ ] Stability Annotations
+- [ ] Stability Annotations (`@Immutable`, `@Stable`)
 - [ ] Lazy Lists
-- [ ] Measuring Recomposition
 - [ ] Performance Anti-patterns
 
-### Part 7 — Scaling Compose
+### Part 7 — Scaling Compose Applications
 
-How do large teams organize thousands of composables?
+**Purpose:** Learn how large teams organize and scale Compose codebases.
 
 - [ ] Screen Decomposition
 - [ ] Reusable UI Components
