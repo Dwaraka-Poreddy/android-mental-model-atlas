@@ -378,9 +378,9 @@ Purpose: How State & Events Are Represented
 
 - [x] Why Side Effects Exist
 - [x] LaunchedEffect
-- [ ] Keys & Identity
-- [ ] SideEffect
-- [ ] DisposableEffect
+- [x] Keys & Identity
+- [x] DisposableEffect
+- [ ] Synchronizing External State (`SideEffect`)
 - [ ] rememberCoroutineScope
 - [ ] rememberUpdatedState
 
