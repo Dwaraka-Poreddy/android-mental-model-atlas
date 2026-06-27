@@ -400,19 +400,20 @@ Purpose: How State & Events Are Represented
 - [x] repeatOnLifecycle
 - [x] Lifecycle aware Collection Patterns
 
-### Part 6 — Performance Engineering
+### Part 6 — Compose Runtime Optimization
 
-**Purpose:** Learn how experienced engineers write Compose that remains fast at scale.
+**Purpose:** Learn how the Compose Runtime minimizes work and how experienced engineers write highly efficient UI.
 
-- [ ] Lazy List Item Keys
+- [ ] Stable vs Unstable Types
 - [ ] Immutable Models
 - [ ] Stability Annotations (`@Immutable`, `@Stable`)
+- [ ] Lazy List Item Keys
 - [ ] Lazy Lists
 - [ ] Performance Anti-patterns
 
-### Part 7 — Scaling Compose Applications
+### Part 7 — Compose Architecture Patterns
 
-**Purpose:** Learn how large teams organize and scale Compose codebases.
+**Purpose:** Learn how large teams structure, reuse, and maintain Compose applications as projects grow.
 
 - [ ] Screen Decomposition
 - [ ] Reusable UI Components
