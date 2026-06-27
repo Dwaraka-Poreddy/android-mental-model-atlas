@@ -376,8 +376,9 @@ Purpose: How State & Events Are Represented
 
 **Purpose:** Learn how composables safely interact with the outside world.
 
-- [ ] Why Side Effects Exist
-- [ ] LaunchedEffect
+- [x] Why Side Effects Exist
+- [x] LaunchedEffect
+- [ ] Keys & Identity
 - [ ] SideEffect
 - [ ] DisposableEffect
 - [ ] rememberCoroutineScope
@@ -403,7 +404,7 @@ Purpose: How State & Events Are Represented
 
 **Purpose:** Learn how experienced engineers write Compose that remains fast at scale.
 
-- [ ] Keys
+- [ ] Lazy List Item Keys
 - [ ] Immutable Models
 - [ ] Stability Annotations (`@Immutable`, `@Stable`)
 - [ ] Lazy Lists
