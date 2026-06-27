@@ -528,12 +528,16 @@ allowing teams to build one coherent product instead of many independent screens
 
 ## One Remaining Question
 
-We've learned why applications need a Design System.
+We've learned that a Design System defines the application's shared design decisions.
 
 A natural question appears.
 
-> **How does Jetpack Compose actually make colors, typography, spacing, and other design values available to every composable in the UI tree?**
+> **How do those shared values—such as colors, typography, spacing, and shapes—actually become available to every composable in the Composition Tree without being passed through every function?**
+
+Before we can understand theming,
+
+we first need to understand the underlying mechanism that makes this possible.
 
 That leads us to the next concept.
 
-**Theming**
+**CompositionLocal**
