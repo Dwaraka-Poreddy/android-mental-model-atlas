@@ -384,12 +384,12 @@ Purpose: How State & Events Are Represented
 - [ ] rememberCoroutineScope
 - [ ] rememberUpdatedState
 
-### Part 4 — State Helpers
+### Part 4 — State Transformation
 
 **Purpose:** Learn how to derive, bridge, and transform state efficiently.
 
+- [x] derivedStateOf
 - [ ] produceState
-- [ ] derivedStateOf
 - [ ] snapshotFlow
 
 ### Part 5 — Lifecycle Integration
