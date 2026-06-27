@@ -389,16 +389,16 @@ Purpose: How State & Events Are Represented
 **Purpose:** Learn how to derive, bridge, and transform state efficiently.
 
 - [x] derivedStateOf
-- [ ] produceState
-- [ ] snapshotFlow
+- [x] produceState
+- [x] snapshotFlow
 
 ### Part 5 — Lifecycle Integration
 
 **Purpose:** Learn how Compose cooperates with the Android lifecycle.
 
-- [ ] collectAsStateWithLifecycle
-- [ ] Lifecycle-aware Collection
-- [ ] repeatOnLifecycle
+- [x] collectAsStateWithLifecycle
+- [x] repeatOnLifecycle
+- [x] Lifecycle aware Collection Patterns
 
 ### Part 6 — Performance Engineering
 
