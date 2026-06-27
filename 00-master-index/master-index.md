@@ -404,21 +404,22 @@ Purpose: How State & Events Are Represented
 
 **Purpose:** Learn how the Compose Runtime minimizes work and how experienced engineers write highly efficient UI.
 
-- [ ] Immutable Models
-- [ ] Stability Annotations (`@Immutable`, `@Stable`)
-- [ ] Lazy List Item Keys
-- [ ] Lazy Lists
-- [ ] Performance Anti-patterns
+- [x] Immutable Models
+- [x] Stability Annotations (`@Immutable`, `@Stable`)
+- [x] Lazy List Item Keys
+- [x] Lazy Lists
+- [x] Performance Anti-patterns
 
 ### Part 7 — Compose Architecture Patterns
 
 **Purpose:** Learn how large teams structure, reuse, and maintain Compose applications as projects grow.
 
-- [ ] Screen Decomposition
-- [ ] Reusable UI Components
-- [ ] Design System
-- [ ] Theming
-- [ ] Folder Structure
+- [x] Screen Decomposition
+- [x] Reusable UI Components
+- [x] Design System
+- [x] CompositionLocal
+- [x] Theming
+- [x] Folder Structure
 
 ---
 
