@@ -287,20 +287,24 @@ Answers
 
 ## One Remaining Question
 
-We've learned that a client requests information from a server.
+We've learned that clients request information from servers.
 
 A natural question appears.
 
 ```text
-If The Client Wants Information,
+A Client Needs Information
 
 ↓
 
-How Does It Tell The Server Exactly What It Wants?
+But Which Server Should It Contact?
 ```
+
+Before a client can ask for anything,
+
+it first needs a way to identify the correct server.
 
 That leads us to the next concept.
 
 ```text
-HTTP
+IP Address
 ```
