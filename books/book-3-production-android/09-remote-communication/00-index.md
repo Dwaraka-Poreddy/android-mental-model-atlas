@@ -15,9 +15,9 @@
 - [x] 03. IP Address
 - [x] 04. Domain Name
 - [x] 05. DNS
-- [ ] 06. Port
-- [ ] 07. Socket (Conceptual)
-- [ ] 08. Connection
+- [x] 06. Port
+- [x] 07. Socket (Conceptual)
+- [x] 08. Connection
 
 ---
 
