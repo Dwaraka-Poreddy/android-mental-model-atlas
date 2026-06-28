@@ -2,7 +2,11 @@
 
 > **Build mental models, not API notes.**
 
-The Android Mental Model Atlas is a first-principles knowledge base designed to help engineers understand Android deeply enough to confidently read, reason about and build production applications.
+The Android Mental Model Atlas is a **dependency-first curriculum** designed to help engineers understand **why Android applications are designed the way they are**, not just how to use their APIs.
+
+Rather than teaching isolated technologies,
+
+the Atlas builds interconnected mental models that enable readers to confidently reason about production Android systems, recognize architectural patterns, and navigate mature Android codebases.
 
 The goal is **durable understanding**, not memorization.
 
@@ -64,9 +68,37 @@ Recall
 
 ---
 
+# Dependency-First Learning
+
+The Atlas is intentionally organized as a **dependency graph** rather than a collection of independent topics.
+
+Every concept is introduced only after its prerequisites have been established.
+
+The goal is that every chapter naturally answers a question raised by the previous one.
+
+```text
+Question
+
+↓
+
+Understanding
+
+↓
+
+Next Question
+```
+
+Readers should never wonder:
+
+> **"Why am I learning this now?"**
+
+---
+
 # 🔒 Non-Negotiable Principles
 
-If a document violates any of these principles, it is **not complete**.
+If a document violates any of these principles,
+
+it is **not complete**.
 
 ---
 
@@ -108,21 +140,29 @@ The reader should want the concept before seeing the API.
 
 Every chapter should answer exactly one primary question.
 
-If it answers multiple major questions, split it.
+If it answers multiple major questions,
+
+split it.
 
 ---
 
 ## 3. Every Section Must Earn Its Place
 
-Before adding any section, ask:
+Before adding any section,
+
+ask:
 
 ```text
-If I remove this section,
+If I Remove This Section,
 
-does understanding decrease?
+↓
+
+Does Understanding Decrease?
 ```
 
-If the answer is **No**, remove it.
+If the answer is **No**,
+
+remove it.
 
 ---
 
@@ -166,10 +206,12 @@ class UserRepository(...)
 
 Every concept should help the reader recognize the same idea inside production code.
 
-The objective is:
+The goal is not merely to write code.
+
+It is to confidently open an unfamiliar Android repository and understand **why the code is structured the way it is**.
 
 ```text
-Understand Code
+Understand Architecture
 
 ↓
 
@@ -296,6 +338,34 @@ before learning implementation details.
 
 ---
 
+## Systems Before Technologies
+
+Prefer teaching the system first.
+
+```text
+Remote Communication
+
+↓
+
+Retrofit
+```
+
+instead of:
+
+```text
+Retrofit
+
+↓
+
+Remote Communication
+```
+
+Technologies evolve.
+
+Systems remain.
+
+---
+
 ## Explicit Abstraction Level
 
 Clearly communicate whether the discussion is about:
@@ -319,6 +389,7 @@ These sections are optional.
 They must earn their place.
 
 - Deep Dive
+- Production Walkthrough
 - Production Code Reading
 - Platform Perspective
 - Common Misconceptions
@@ -340,6 +411,45 @@ Avoid:
 
 ---
 
+# What This Atlas Is Not
+
+The Atlas is **not**:
+
+- an Android API reference
+- a cookbook of code snippets
+- an interview question bank
+- a collection of framework documentation
+
+Instead,
+
+it aims to answer the questions experienced engineers ask:
+
+```text
+Why Does This Exist?
+
+↓
+
+What Problem Does It Solve?
+
+↓
+
+How Does It Work?
+
+↓
+
+How Do I Recognize It In Production?
+
+↓
+
+When Should I Use It?
+```
+
+If a reader finishes a chapter knowing only the API,
+
+the chapter is incomplete.
+
+---
+
 # 📋 Editorial Checklist
 
 Before marking any chapter complete:
@@ -357,12 +467,14 @@ Before marking any chapter complete:
 
 □ Does it teach a mental model rather than an API?
 
-□ Can the reader recognize it in production code?
+□ Can the reader recognize it in production?
 
 □ Would removing 30% reduce understanding?
 ```
 
-If any answer is **No**, revisit the chapter.
+If any answer is **No**,
+
+revisit the chapter.
 
 ---
 
@@ -410,7 +522,9 @@ Ready To Render
 
 If a chapter does not produce an "Aha!" moment,
 
-it is probably explaining too much and teaching too little.
+it is probably explaining too much
+
+and teaching too little.
 
 ---
 
@@ -419,11 +533,16 @@ it is probably explaining too much and teaching too little.
 The README is intentionally stable.
 
 It changes only when we discover a better way to teach,
+
 not when we discover a new Android concept.
 
 Concept documents evolve.
 
-Editorial principles should remain small, opinionated and timeless.
+Editorial principles should remain small,
+
+opinionated,
+
+and timeless.
 
 ---
 
@@ -443,4 +562,10 @@ The Atlas does not exist to satisfy the rules.
 
 # Start Here
 
-👉 Open the Master Index.
+Begin with **Book 1 — Foundations**.
+
+Each Book builds on the previous one.
+
+The Atlas is designed to be read in order because later concepts depend on earlier mental models.
+
+👉 Open the **Book 1 Index**.
