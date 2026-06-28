@@ -6,44 +6,51 @@
 
 ## Part 1 — Computer Communication Foundations
 
-**Purpose:** Understand how two computers communicate across a network before introducing Android-specific technologies.
+**Purpose:** Understand how two computers discover and communicate with each other before introducing web technologies.
 
 ### Concepts
 
-- [ ] Why Networks Exist
-- [ ] Client & Server
-- [ ] IP Address
-- [ ] Domain Name
-- [ ] DNS
-- [ ] Port
-- [ ] Socket (Conceptual)
-- [ ] Connection
+- [x] 01. Why Networks Exist
+- [x] 02. Client & Server
+- [x] 03. IP Address
+- [x] 04. Domain Name
+- [x] 05. DNS
+- [ ] 06. Port
+- [ ] 07. Socket (Conceptual)
+- [ ] 08. Connection
 
 ---
 
 ## Part 2 — HTTP
 
-**Purpose:** Understand the language computers use to communicate over the web.
+**Purpose:** Understand the language clients and servers use to communicate over the web.
 
 ### Concepts
 
-- [ ] Why HTTP Exists
-- [ ] HTTP
-- [ ] URL
-- [ ] Request
-- [ ] Response
+- [x] 01. HTTP
+- [x] 02. Request
+- [x] 03. Response
 
-- [ ] HTTP Methods
-    - [ ] GET
-    - [ ] POST
-    - [ ] PUT
-    - [ ] PATCH
-    - [ ] DELETE
+- [x] 04. HTTP Methods
+- [x] 05. GET
+- [x] 06. POST
+- [x] 07. PUT vs PATCH
+- [x] 08. DELETE
 
-- [ ] Headers
-- [ ] Body
-- [ ] Status Codes
-- [ ] HTTPS
+- [x] 09. URL
+- [x] 10. Path Parameters
+- [x] 11. Query Parameters
+
+- [x] 12. Headers
+- [x] 13. Body
+
+- [x] 14. HTTP Status Codes
+- [x] 15. Status Code Categories
+- [x] 16. 2xx Success
+- [ ] 17. 4xx Client Errors
+- [ ] 18. 5xx Server Errors
+
+- [ ] 19. HTTPS
 
 ---
 
@@ -53,19 +60,14 @@
 
 ### Concepts
 
-- [ ] Why APIs Exist
-- [ ] API
-- [ ] REST
-- [ ] RESTful APIs
-- [ ] Endpoint
+- [ ] 01. Why APIs Exist
+- [ ] 02. API
+- [ ] 03. Endpoint
+- [ ] 04. REST
+- [ ] 05. RESTful APIs
 
-- [ ] Request Parameters
-    - [ ] Path Parameters
-    - [ ] Query Parameters
-
-- [ ] Authentication
-- [ ] Authorization
-- [ ] Tokens
+- [ ] 06. Authentication vs Authorization
+- [ ] 07. Tokens
 
 ---
 
@@ -75,13 +77,13 @@
 
 ### Concepts
 
-- [ ] Why Serialization Exists
-- [ ] Serialization
-- [ ] Deserialization
-- [ ] JSON
-- [ ] DTO
-- [ ] API Versioning
-- [ ] Backward Compatibility
+- [ ] 01. Why Serialization Exists
+- [ ] 02. Serialization
+- [ ] 03. Deserialization
+- [ ] 04. JSON
+- [ ] 05. DTO
+- [ ] 06. API Versioning
+- [ ] 07. Backward Compatibility
 
 ---
 
@@ -91,13 +93,13 @@
 
 ### Concepts
 
-- [ ] Why Networking Libraries Exist
-- [ ] OkHttp
-- [ ] Retrofit
-- [ ] Converter Factories
-- [ ] Interceptors
-- [ ] Timeouts
-- [ ] Error Handling
+- [ ] 01. Why Networking Libraries Exist
+- [ ] 02. OkHttp
+- [ ] 03. Retrofit
+- [ ] 04. Converter Factories
+- [ ] 05. Interceptors
+- [ ] 06. Timeouts
+- [ ] 07. Error Handling
 
 ---
 
@@ -107,12 +109,12 @@
 
 ### Concepts
 
-- [ ] API Service Layer
-- [ ] Remote Data Source
-- [ ] Network Error Modeling
-- [ ] Retry Strategies
-- [ ] Logging Interceptors
-- [ ] API Design Best Practices
+- [ ] 01. API Service Layer
+- [ ] 02. Remote Data Source
+- [ ] 03. Network Error Modeling
+- [ ] 04. Retry Strategies
+- [ ] 05. Logging Interceptors
+- [ ] 06. API Design Best Practices
 
 ---
 
