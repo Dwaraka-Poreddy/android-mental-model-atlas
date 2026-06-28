@@ -4,7 +4,7 @@
 
 In the previous chapter,
 
-we learned that HTTP status codes are grouped into categories.
+we learned that every HTTP status code belongs to a category.
 
 One of those categories is:
 
@@ -19,7 +19,7 @@ What does a successful HTTP response actually mean?
 Does it always mean:
 
 - data was returned,
-- everything worked perfectly,
+- something was created,
 - or something else?
 
 ---
@@ -28,19 +28,19 @@ Does it always mean:
 
 Imagine you submit a passport application.
 
-After reviewing your application,
+After reviewing it,
 
 the officer says:
 
 > "Your application has been successfully processed."
 
-Notice something important.
+Notice what that statement doesn't tell you.
 
-That statement doesn't tell you:
+It doesn't tell you:
 
-- whether you'll receive a passport today,
-- whether documents will arrive later,
-- or whether additional information is included.
+- whether you'll receive your passport immediately,
+- whether it will arrive by mail,
+- or whether there's anything else to collect.
 
 It communicates something more fundamental.
 
@@ -52,37 +52,79 @@ HTTP uses the same idea.
 
 ## What Success Really Means
 
-When a server returns a **2xx** status code,
+Whenever a server returns a **2xx** status code,
 
 it is telling the client:
 
 > "I successfully understood your request and processed it."
 
-That's the key idea.
+That is the mental model.
 
-Success is about **processing the request**.
-
-It doesn't necessarily describe what data comes back.
+Everything else is simply a more specific description of **how** the request succeeded.
 
 ---
 
-## Different Kinds Of Success
+## Common Success Responses
 
-Not every successful request looks the same.
+Although every **2xx** response represents success,
+
+different status codes communicate different successful outcomes.
+
+### 200 OK
+
+```text
+Request Processed Successfully
+        +
+Requested Data Returned
+```
+
+This is the most common success response.
+
+It is typically returned when the server successfully processes a request and returns the requested information.
+
+Examples include:
+
+- retrieving a user profile,
+- fetching products,
+- loading today's weather.
+
+---
+
+### 201 Created
+
+```text
+Request Processed Successfully
+        +
+New Resource Created
+```
+
+This response indicates that the server successfully created something new.
+
+Examples include:
+
+- creating a new account,
+- placing an order,
+- publishing a post.
+
+---
+
+### 204 No Content
+
+```text
+Request Processed Successfully
+        +
+Nothing To Return
+```
+
+Sometimes the server successfully completes the request,
+
+but there is no data that needs to be returned.
 
 For example,
 
-a successful response might:
+after successfully deleting a resource,
 
-- return existing information,
-- create a new resource,
-- complete successfully without returning any data.
-
-These are all successful outcomes.
-
-The specific status code tells the client which kind of success occurred.
-
-We'll study those individual status codes next.
+the server may simply indicate that the operation completed.
 
 ---
 
@@ -94,57 +136,61 @@ you'll often see code like:
 
 ```kotlin
 if (response.isSuccessful) {
-    // Handle success
+    ...
 }
 ```
 
-Notice that the application isn't checking for:
+Notice that the application isn't checking specifically for:
 
-```text
-200
-```
+- 200,
+- 201,
+- or 204.
 
-It's checking whether the response belongs to the **2xx Success** category.
+Instead,
 
-Only then does it continue processing the response.
+it's asking a more important question.
+
+> "Did the server successfully process my request?"
+
+Only after that does the application decide how to handle the response.
 
 ---
 
 ## The Bigger Picture
 
-A successful HTTP response means the server successfully processed the request.
+Every **2xx** status code communicates the same core idea.
 
 ```text
-Client Sends Request
-        ↓
-Server Processes Request
-        ↓
-2xx Status Code
-        ↓
-Client Knows The Request Succeeded
+Request Processed Successfully
+            ↓
+          2xx
 ```
 
-The exact kind of success depends on the specific status code.
+The specific status code simply explains what kind of successful outcome occurred.
 
 ---
 
 ## Production Recognition
 
-Whenever you see:
+When reading production code,
 
-```kotlin
-response.isSuccessful
+don't try to memorize every success status code individually.
+
+Instead,
+
+reason like this.
+
+```text
+2xx
+    ↓
+Success
+
+↓
+
+Which kind of success?
 ```
 
-don't think:
-
-> "The server returned data."
-
-Instead think:
-
-> "The server successfully processed my request."
-
-Whether data was returned depends on the specific status code.
+Then look at the specific status code if you need more detail.
 
 ---
 
@@ -158,32 +204,50 @@ Request Processed Successfully
           2xx
 ```
 
+### Common Success Responses
+
+```text
+200
+    ↓
+Success
++
+Returned Data
+
+------------------------
+
+201
+    ↓
+Success
++
+Created Something
+
+------------------------
+
+204
+    ↓
+Success
++
+Nothing To Return
+```
+
 ### Remember
 
-A **2xx** response means the server successfully understood and processed the request.
+All **2xx** responses mean the server successfully processed the request.
 
-The specific status code explains what kind of successful outcome occurred.
+The specific status code simply provides more detail about the successful outcome.
 
 ---
 
 ## One Remaining Question
 
-We've learned what the **2xx Success** category represents.
+We've learned what successful responses look like.
 
 A natural question appears.
 
-The most common success status code is:
-
-```text
-200 OK
-```
-
-What does it actually mean,
-
-and when is it returned?
+What happens when the server cannot process the client's request because something is wrong with the request itself?
 
 That leads us to the next concept.
 
 ```text
-200 OK
+4xx Client Errors
 ```
