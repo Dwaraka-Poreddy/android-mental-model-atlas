@@ -47,10 +47,10 @@
 - [x] 14. HTTP Status Codes
 - [x] 15. Status Code Categories
 - [x] 16. 2xx Success
-- [ ] 17. 4xx Client Errors
-- [ ] 18. 5xx Server Errors
+- [x] 17. 4xx Client Errors
+- [x] 18. 5xx Server Errors
 
-- [ ] 19. HTTPS
+- [x] 19. HTTPS
 
 ---
 
