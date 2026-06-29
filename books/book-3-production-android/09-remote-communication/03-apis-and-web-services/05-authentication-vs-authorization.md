@@ -316,17 +316,30 @@ A user must be authenticated before they can be authorized.
 
 ## One Remaining Question
 
-We've learned how a Web Service verifies a user's identity.
+We've learned how a Web Service verifies a user's identity before deciding what they're allowed to do.
 
 A natural question appears.
 
-REST encourages every request to be independent.
+Imagine opening your banking application.
 
-If every request is processed independently,
+You log in once.
 
-how can the server recognize the same authenticated user across thousands of requests,
+Then you:
 
-without asking them to log in every single time?
+- view your profile,
+- check your balance,
+- transfer money,
+- view your transaction history.
+
+Each of these actions sends a completely separate HTTP request.
+
+If REST encourages every request to be independent,
+
+does the user need to enter their username and password before every single request?
+
+Obviously not.
+
+So how does the Web Service recognize that all of these requests are coming from the same authenticated user?
 
 That leads us to the next concept.
 
