@@ -62,12 +62,13 @@
 
 - [ ] 01. Why APIs Exist
 - [ ] 02. API
-- [ ] 03. Endpoint
-- [ ] 04. REST
-- [ ] 05. RESTful APIs
+- [ ] 03. Web Service
+- [ ] 04. Endpoint
+- [ ] 05. REST
+- [ ] 06. RESTful APIs
 
-- [ ] 06. Authentication vs Authorization
-- [ ] 07. Tokens
+- [ ] 07. Authentication vs Authorization
+- [ ] 08. Tokens
 
 ---
 
