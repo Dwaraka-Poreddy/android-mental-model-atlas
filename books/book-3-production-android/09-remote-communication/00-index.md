@@ -60,15 +60,12 @@
 
 ### Concepts
 
-- [ ] 01. Why APIs Exist
-- [ ] 02. API
-- [ ] 03. Web Service
-- [ ] 04. Endpoint
-- [ ] 05. REST
-- [ ] 06. RESTful APIs
-
-- [ ] 07. Authentication vs Authorization
-- [ ] 08. Tokens
+- [ ] 01. API
+- [ ] 02. Web Service
+- [ ] 03. Endpoint
+- [ ] 04. REST & RESTful APIs
+- [ ] 05. Authentication vs Authorization
+- [ ] 06. Tokens
 
 ---
 
