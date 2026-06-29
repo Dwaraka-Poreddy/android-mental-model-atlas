@@ -60,75 +60,72 @@
 
 ### Concepts
 
-- [ ] 01. API
-- [ ] 02. Web Service
-- [ ] 03. Endpoint
-- [ ] 04. REST & RESTful APIs
-- [ ] 05. Authentication vs Authorization
-- [ ] 06. Tokens
+- [x] 01. API
+- [x] 02. Web Service
+- [x] 03. Endpoint
+- [x] 04. REST & RESTful APIs
+- [x] 05. Authentication vs Authorization
+- [x] 06. Tokens
 
 ---
 
-## Part 4 — Data Representation
+# Part 4 — Data Representation
 
-**Purpose:** Understand how applications exchange structured data.
+**Purpose:** Understand how applications exchange structured data across a network.
 
-### Concepts
+## Concepts
 
-- [ ] 01. Why Serialization Exists
-- [ ] 02. Serialization
-- [ ] 03. Deserialization
-- [ ] 04. JSON
-- [ ] 05. DTO
-- [ ] 06. API Versioning
-- [ ] 07. Backward Compatibility
+- [ ] 01. Serialization & Deserialization
+- [ ] 02. JSON & DTO
+- [ ] 03. API Versioning & Backward Compatibility
 
 ---
 
-## Part 5 — Android Networking
+# Part 5 — Android Networking
 
 **Purpose:** Learn how Android applications perform network requests.
 
-### Concepts
+## Concepts
 
-- [ ] 01. Why Networking Libraries Exist
-- [ ] 02. OkHttp
-- [ ] 03. Retrofit
-- [ ] 04. Converter Factories
-- [ ] 05. Interceptors
-- [ ] 06. Timeouts
-- [ ] 07. Error Handling
+- [ ] 01. OkHttp
+- [ ] 02. Retrofit & Converter Factories
+- [ ] 03. Interceptors, Timeouts & Error Handling
 
 ---
 
-## Part 6 — Production Networking Patterns
+# Part 6 — Production Networking Patterns
 
 **Purpose:** Learn how production Android applications organize network communication.
 
-### Concepts
+## Concepts
 
 - [ ] 01. API Service Layer
 - [ ] 02. Remote Data Source
 - [ ] 03. Network Error Modeling
 - [ ] 04. Retry Strategies
-- [ ] 05. Logging Interceptors
-- [ ] 06. API Design Best Practices
+- [ ] 05. API Design Best Practices
 
 ---
 
-## One Remaining Question
+# One Remaining Question
 
-We've learned how data travels from a remote server into our application.
+We've learned how Android applications communicate with remote servers,
+
+how they exchange requests and responses,
+
+and how they securely identify users.
 
 A natural question appears.
 
-> **Once we've downloaded the data, where should we keep it?**
+Once data arrives inside the application,
 
-Some information only lives for a few seconds.
+where should it be stored?
 
-Some needs to survive app restarts.
+Some data is needed only for a few seconds.
 
-Some must even work without an internet connection.
+Some should survive app restarts.
+
+Some should even remain available without an internet connection.
 
 That leads us to the next document.
 
