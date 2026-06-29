@@ -75,9 +75,10 @@
 
 ## Concepts
 
-- [ ] 01. Serialization & Deserialization
-- [ ] 02. JSON & DTO
-- [ ] 03. API Versioning & Backward Compatibility
+- [x] 01. Serialization & Deserialization
+- [ ] 02. JSON
+- [ ] 03. DTO
+- [ ] 04. API Versioning & Backward Compatibility
 
 ---
 
