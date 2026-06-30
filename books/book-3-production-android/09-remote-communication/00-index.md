@@ -88,12 +88,12 @@
 
 ## Concepts
 
-- [ ] 01. OkHttp
-- [ ] 02. Retrofit
-- [ ] 03. Converter Factories
-- [ ] 04. Interceptors
-- [ ] 05. Timeouts
-- [ ] 06. Error Handling
+- [x] 01. OkHttp
+- [x] 02. Retrofit
+- [x] 03. Converter Factories
+- [x] 04. Interceptors
+- [x] 05. Timeouts
+- [x] 06. Error Handling
 
 ---
 
@@ -105,9 +105,10 @@
 
 - [ ] 01. API Service Layer
 - [ ] 02. Remote Data Source
-- [ ] 03. Network Error Modeling
-- [ ] 04. Retry Strategies
-- [ ] 05. API Design Best Practices
+- [ ] 03. Error Types
+- [ ] 04. Production Error Modeling
+- [ ] 05. Retry Strategies
+- [ ] 06. API Design Best Practices
 
 ---
 
