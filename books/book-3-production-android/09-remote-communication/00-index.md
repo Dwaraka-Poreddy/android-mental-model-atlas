@@ -76,21 +76,24 @@
 ## Concepts
 
 - [x] 01. Serialization & Deserialization
-- [ ] 02. JSON
-- [ ] 03. DTO
-- [ ] 04. API Versioning & Backward Compatibility
+- [x] 02. JSON
+- [x] 03. DTO
+- [x] 04. API Versioning & Backward Compatibility
 
 ---
 
 # Part 5 — Android Networking
 
-**Purpose:** Learn how Android applications perform network requests.
+**Purpose:** Understand the networking stack used by production Android applications.
 
 ## Concepts
 
 - [ ] 01. OkHttp
-- [ ] 02. Retrofit & Converter Factories
-- [ ] 03. Interceptors, Timeouts & Error Handling
+- [ ] 02. Retrofit
+- [ ] 03. Converter Factories
+- [ ] 04. Interceptors
+- [ ] 05. Timeouts
+- [ ] 06. Error Handling
 
 ---
 
