@@ -103,12 +103,11 @@
 
 ## Concepts
 
-- [ ] 01. API Service Layer
-- [ ] 02. Remote Data Source
-- [ ] 03. Error Types
-- [ ] 04. Production Error Modeling
-- [ ] 05. Retry Strategies
-- [ ] 06. API Design Best Practices
+- [x] 01. API Service Layer
+- [x] 02. Remote Data Source
+- [ ] 03. Production Error Modeling
+- [ ] 04. Retry Strategies
+- [ ] 05. API Design Best Practices
 
 ---
 
