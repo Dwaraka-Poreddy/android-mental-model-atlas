@@ -74,3 +74,62 @@ They are potential future expansions discovered while building the Atlas.
 - Biometric Authentication
 - Secure Credential Storage
 - Network Security Config
+
+---
+## Future Book — Android Architecture
+
+**Purpose:** Learn how production Android applications are organized into clean, maintainable, and scalable architectures.
+
+### Part 1 — Why Architecture Exists
+
+- Why Architecture Exists
+- Separation of Concerns
+- Coupling & Cohesion
+- Layered Architecture
+
+### Part 2 — MVVM
+
+- Why MVVM Exists
+- Model
+- View
+- ViewModel
+- State Management
+
+### Part 3 — Repository Pattern
+
+- Why Repository Exists
+- Repository
+- Multiple Data Sources
+- Repository Responsibilities
+
+### Part 4 — Data Layer
+
+- Remote Data Source
+- Local Data Source
+- Cache
+- Offline First
+- Synchronization
+
+### Part 5 — Domain Layer
+
+- Use Cases
+- Business Logic
+- Domain Models
+- Dependency Rule
+
+### Part 6 — Dependency Injection
+
+- Why Dependency Injection Exists
+- Manual Dependency Injection
+- Service Locator
+- Hilt
+- Scopes
+- Modules
+
+### Part 7 — Clean Architecture
+
+- Clean Architecture
+- Layer Communication
+- Dependency Rule
+- Feature Architecture
+- Putting Everything Together
