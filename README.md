@@ -546,6 +546,32 @@ and timeless.
 
 ---
 
+# Production Code Companion Guidelines
+
+Some concepts include a **Production Code** companion document in addition to the Mental Model document.
+
+A Production Code companion exists only when real production code significantly improves understanding of the concept.
+
+It should **not** become API documentation or a tutorial.
+
+It should explain the reasoning behind production code, not merely describe its syntax.
+
+Instead, every production document should help readers recognize and understand patterns they will encounter in real Android codebases.
+
+Each production document should answer the following questions:
+
+1. **What does this look like in production?**
+2. **Why is it written this way?**
+3. **What problem does it solve?**
+4. **What variations might I encounter?**
+5. **How can I recognize it instantly in an unfamiliar codebase?**
+
+The goal is not to teach readers how to write code from memory.
+
+The goal is to help them confidently read, understand, and navigate production Android code.
+
+---
+
 # Guiding Principle
 
 If following a rule makes the explanation worse,
