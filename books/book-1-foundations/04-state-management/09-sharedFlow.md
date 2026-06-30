@@ -321,6 +321,12 @@ Sharing The Same Emission With Multiple Observers
 
 ---
 
+> **You'll see this in...**
+> - **DOC 5 — Android Lifecycle & Architecture**, where SharedFlow carries one-time events (like "show snackbar" or "navigate to screen") from ViewModel to UI without replaying on configuration change
+> - **DOC 9 — Production Compose Patterns**, where side effects consume SharedFlow events using `LaunchedEffect`
+
+---
+
 ## Revision Table
 
 | Section | Content |

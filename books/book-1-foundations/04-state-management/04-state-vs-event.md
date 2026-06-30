@@ -478,6 +478,13 @@ This simple rule correctly classifies most information in Android applications.
 
 ---
 
+> **You'll see this in...**
+> - **DOC 5 — Android Lifecycle & Architecture**, where ViewModels expose `StateFlow` for screen state and `SharedFlow` or `Channel` for one-time events — this distinction drives the entire architecture
+> - **DOC 7 — Jetpack Compose**, where state triggers recomposition but events should not — using the wrong type causes bugs like duplicate navigation or repeated snackbars
+> - **DOC 9 — Production Compose Patterns**, where `LaunchedEffect` consumes events while `collectAsState()` observes state
+
+---
+
 ## Revision Table
 
 | Section | Content |

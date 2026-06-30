@@ -664,6 +664,12 @@ private val repository: UserRepository
 This ViewModel Requests Application Data From Its Owner
 ```
 
+> **You'll see this in...**
+> - **DOC 11 — Remote Communication**, where `RemoteDataSource` wraps Retrofit calls and the Repository coordinates between remote and local data
+> - **DOC 12 — Local Persistence**, where the Repository reads from Room and decides when to refresh from the network
+> - **DOC 13 — Data Architecture**, where Repository becomes the single source of truth — the most important architectural pattern in production Android
+> - **DOC 14 — Dependency Injection**, where Hilt provides Repository instances to ViewModels automatically
+
 ### Previous Concept
 
 ```text

@@ -451,6 +451,10 @@ viewModelScope.launch {
 Launch Screen-related Work That Automatically Ends With The ViewModel
 ```
 
+> **You'll see this in...**
+> - **DOC 11 — Remote Communication**, where `viewModelScope.launch { repository.fetchUsers() }` is the standard way to trigger a network call from a screen
+> - **DOC 13 — Data Architecture**, where `viewModelScope` + `stateIn()` keeps data pipelines alive only while the screen is active
+
 ### Previous Concept
 
 ```text

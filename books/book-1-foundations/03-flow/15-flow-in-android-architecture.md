@@ -799,6 +799,12 @@ Combine Data
 Execute Pipelines
 ```
 
+> **You'll see this in...**
+> - **DOC 5 — Android Lifecycle & Architecture**, where Repositories expose `Flow` to ViewModels, forming the backbone of unidirectional data flow
+> - **DOC 12 — Local Persistence**, where Room returns `Flow<List<Entity>>` so your UI automatically updates when the database changes
+> - **DOC 13 — Data Architecture**, where offline-first architectures combine Room Flows and Retrofit calls into a single data pipeline
+> - **DOC 9 — Production Compose Patterns**, where `collectAsState()` bridges Flow into Compose's snapshot system
+
 However, moving data is only one part of building reactive applications.
 
 Equally important is deciding:

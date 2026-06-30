@@ -495,6 +495,12 @@ These concepts explain how scopes track and manage their coroutines.
 
 ---
 
+> **You'll see this in...**
+> - **DOC 5 — Android Lifecycle & Architecture**, where `viewModelScope` ties coroutine lifetime to the ViewModel — when the ViewModel is cleared, all its coroutines cancel automatically
+> - **DOC 15 — Background Work**, where `CoroutineWorker` provides its own scope for work that must survive screen rotations and even app restarts
+
+---
+
 ## Revision Table
 
 | Section | Content |

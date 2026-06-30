@@ -668,6 +668,13 @@ IO Dispatcher is usually the appropriate choice.
 
 ---
 
+> **You'll see this in...**
+> - **DOC 11 — Remote Communication**, where every Retrofit call and OkHttp request runs on `Dispatchers.IO`
+> - **DOC 12 — Local Persistence**, where Room DAO queries switch to IO threads behind the scenes
+> - **DOC 13 — Data Architecture**, where Repositories use `flowOn(Dispatchers.IO)` so data loading never blocks the UI
+
+---
+
 ## Questions We Are Intentionally Postponing
 
 You may naturally wonder:

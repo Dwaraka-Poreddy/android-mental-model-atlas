@@ -389,6 +389,13 @@ StateFlow
 
 ---
 
+> **You'll see this in...**
+> - **DOC 5 — Android Lifecycle & Architecture**, where every ViewModel exposes screen state as `StateFlow<UiState>` — this becomes the standard pattern
+> - **DOC 7 — Jetpack Compose**, where `collectAsState()` turns StateFlow into Compose state, triggering recomposition on every emission
+> - **DOC 13 — Data Architecture**, where Repositories convert cold database Flows into hot StateFlows using `stateIn()`
+
+---
+
 ## Revision Table
 
 | Section | Content |

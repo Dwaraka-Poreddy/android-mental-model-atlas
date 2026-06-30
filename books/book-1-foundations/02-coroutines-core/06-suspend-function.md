@@ -498,6 +498,13 @@ These concepts explain why Kotlin chose this design and how suspension actually 
 
 ---
 
+> **You'll see this in...**
+> - **DOC 11 — Remote Communication**, where Retrofit API interfaces use `suspend fun` to make network calls look like regular function calls
+> - **DOC 12 — Local Persistence**, where Room DAO methods use `suspend fun` for database reads and writes
+> - **DOC 14 — Dependency Injection**, where Hilt provides suspend-aware dependencies across layers
+
+---
+
 ## Revision Table
 
 | Section | Content |

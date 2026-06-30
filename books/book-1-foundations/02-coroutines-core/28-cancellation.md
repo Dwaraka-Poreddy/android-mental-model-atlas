@@ -624,6 +624,13 @@ that help a coroutine observe cancellation.
 
 ---
 
+> **You'll see this in...**
+> - **DOC 5 — Android Lifecycle & Architecture**, where `viewModelScope` cancels all coroutines when the user leaves a screen — this is why cancellation matters in Android
+> - **DOC 11 — Remote Communication**, where an in-flight network request should cancel if the user navigates away
+> - **DOC 15 — Background Work**, where `CoroutineWorker` uses cooperative cancellation to stop gracefully when the system rescinds the work request
+
+---
+
 For this chapter, focus on one idea:
 
 ```text

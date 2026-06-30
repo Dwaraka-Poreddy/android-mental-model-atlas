@@ -366,6 +366,12 @@ while the resulting StateFlow always represents the latest known state.
 
 ---
 
+> **You'll see this in...**
+> - **DOC 5 — Android Lifecycle & Architecture**, where ViewModels call `stateIn()` to convert Repository Flows into StateFlows that the UI can safely observe
+> - **DOC 13 — Data Architecture**, where `stateIn(WhileSubscribed(5000))` keeps the upstream alive for 5 seconds after the last subscriber — surviving screen rotation without restarting expensive database queries
+
+---
+
 ## Revision Table
 
 | Section | Content |

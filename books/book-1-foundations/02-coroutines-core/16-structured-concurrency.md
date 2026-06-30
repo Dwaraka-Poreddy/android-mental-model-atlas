@@ -411,6 +411,13 @@ These concepts build upon structured coroutine hierarchies.
 
 ---
 
+> **You'll see this in...**
+> - **DOC 5 — Android Lifecycle & Architecture**, where `viewModelScope` uses structured concurrency to cancel all screen-related work when the ViewModel is destroyed
+> - **DOC 16 — Testing Strategy**, where `runTest` creates a structured test scope so coroutines complete deterministically in tests
+> - Every production ViewModel, Repository, and Worker you'll encounter — structured concurrency is the reason none of them leak coroutines
+
+---
+
 ## Revision Table
 
 | Section | Content |

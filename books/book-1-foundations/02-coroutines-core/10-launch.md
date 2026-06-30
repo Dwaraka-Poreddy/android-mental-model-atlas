@@ -588,6 +588,13 @@ These concepts explain how launched coroutines are managed and executed.
 
 ---
 
+> **You'll see this in...**
+> - **DOC 5 — Android Lifecycle & Architecture**, where `viewModelScope.launch { ... }` is the most common way to start screen-related work — fetching data, processing user actions
+> - **DOC 11 — Remote Communication**, where `launch` triggers network calls inside ViewModels
+> - **DOC 15 — Background Work**, where `CoroutineWorker` uses `launch`-style coroutines for tasks that run even when the app is closed
+
+---
+
 ## Revision Table
 
 | Section | Content |

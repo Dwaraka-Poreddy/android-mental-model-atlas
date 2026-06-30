@@ -582,6 +582,12 @@ These concepts will form the foundation of DOC 2.
 
 ---
 
+> **You'll see this in...**
+> - **DOC 2 — Coroutines Core**, where you'll learn exactly how coroutines deliver on these promises — suspension, structured concurrency, dispatchers
+> - **Every production Android codebase** — coroutines are the foundation of networking (DOC 11), database access (DOC 12), and background work (DOC 15). The problems described in this chapter are the reason all that code uses coroutines instead of raw threads.
+
+---
+
 ## Revision Table
 
 | Section | Content |

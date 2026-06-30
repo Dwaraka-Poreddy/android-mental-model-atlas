@@ -373,6 +373,12 @@ It is on delivering a value to its intended consumer.
 
 ---
 
+> **You'll see this in...**
+> - **DOC 5 — Android Lifecycle & Architecture**, where Channels deliver one-shot navigation events from ViewModel to a single UI observer
+> - **DOC 6 — Navigation**, where navigation commands are often modeled as Channel emissions so each command is consumed exactly once
+
+---
+
 ## Revision Table
 
 | Section | Content |

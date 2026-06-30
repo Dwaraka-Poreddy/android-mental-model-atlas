@@ -332,6 +332,13 @@ MutableStateFlow
 Screen State
 ```
 
+> **You'll see this in...**
+> - **DOC 7 — Jetpack Compose**, where Composables observe ViewModel state via `collectAsState()` — ViewModel becomes the bridge between data and UI
+> - **DOC 9 — Production Compose Patterns**, where state hoisting patterns determine whether state lives in the ViewModel or in a Composable
+> - **DOC 11 — Remote Communication**, where ViewModels call Repository methods to trigger network requests
+> - **DOC 14 — Dependency Injection**, where Hilt's `@HiltViewModel` automatically provides ViewModel dependencies
+> - **DOC 16 — Testing Strategy**, where ViewModels are the primary unit under test for screen logic
+
 ### Previous Concept
 
 ```text

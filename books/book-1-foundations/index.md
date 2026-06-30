@@ -1,14 +1,15 @@
 # Book 1 — Foundations
 
-This book contains the foundational dependency chain for understanding Android execution, concurrency, reactive programming, state, and lifecycle.
+This book contains the foundational dependency chain for understanding Android execution, concurrency, reactive programming, and state management.
 
-## Included Documents
+**Teaches:** Why Android needs coroutines, flows, and state management
+
+## Documents
 
 - [DOC 1 — Computer & Android Foundations](./01-foundations/)
 - [DOC 2 — Coroutines Core](./02-coroutines-core/)
 - [DOC 3 — Reactive Streams & Flow](./03-flow/)
 - [DOC 4 — State Management](./04-state-management/)
-- [DOC 5 — Android Lifecycle & Architecture](./05-android-lifecycle-architecture/)
 
 ---
 
@@ -211,53 +212,12 @@ Purpose: How State & Events Are Represented
 
 ---
 
-## DOC 5 — Android Lifecycle & Architecture
+## Goal
 
-**Purpose:** Ownership & Data Flow
+By the end of Book 1, you understand:
+- ✅ Why Android uses coroutines (not threads)
+- ✅ How coroutines work (suspension, resumption, builders)
+- ✅ How data flows through asynchronous systems (Flow)
+- ✅ How to represent state (StateFlow, SharedFlow)
 
-### Part 1 — Application Ownership
-
-- [x] Android Process
-- [x] Application
-
-### Part 2 — Screen Structure
-
-- [x] Activity
-- [x] Fragment
-- [x] FragmentManager & Transactions
-
-### Part 3 — Screen Lifetime
-
-- [x] Lifecycle
-- [x] Configuration Changes
-
-### Part 4 — Screen State Ownership
-
-- [x] ViewModel
-
-- [x] ViewModelStore
-      - preserves ViewModels
-      - lookup by key
-
-- [x] ViewModel Lifecycle
-      - why ViewModelStore survives recreation
-      - Activity instance vs logical screen
-      - when ViewModels are actually destroyed
-
-- [x] viewModelScope
-- [x] SavedStateHandle
-- [x] ViewModel Owners
-
-### Part 5 — Data Ownership
-
-- [x] Repository
-- [x] Single Source of Truth
-
-### Part 6 — Layers of State
-
-- [x] UI State
-- [x] Business State
-
-### Part 7 — Data Flow
-
-- [x] Unidirectional Data Flow
+**Next:** [Book 2 — Architecture & UI](../book-2-architecture-and-ui/index.md)

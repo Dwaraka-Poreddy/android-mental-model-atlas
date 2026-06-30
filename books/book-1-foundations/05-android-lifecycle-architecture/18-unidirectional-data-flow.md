@@ -473,3 +473,8 @@ UI
 ```
 
 The concepts in this document form a single ownership and data-flow model that appears throughout modern Android applications.
+
+> **You'll see this in...**
+> - **DOC 7 — Jetpack Compose**, where Composables receive state down and send events up — the same unidirectional pattern, now at the UI level
+> - **DOC 9 — Production Compose Patterns**, where state hoisting enforces UDF boundaries between screens and components
+> - **DOC 13 — Data Architecture**, where UDF extends all the way from the database through the Repository to the ViewModel to the UI — the full production pipeline

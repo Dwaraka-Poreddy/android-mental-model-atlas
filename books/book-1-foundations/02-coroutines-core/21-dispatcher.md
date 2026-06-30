@@ -590,6 +590,14 @@ Which Thread Executes The Coroutine
 
 ---
 
+> **You'll see this in...**
+> - **DOC 5 — Android Lifecycle & Architecture**, where ViewModels use `Dispatchers.Main` by default (via `viewModelScope`) because they update UI state
+> - **DOC 11 — Remote Communication**, where networking code runs on `Dispatchers.IO` because HTTP calls are waiting work
+> - **DOC 12 — Local Persistence**, where Room database operations also use `Dispatchers.IO` to avoid blocking the main thread
+> - **DOC 17 — Performance & Optimization**, where choosing the wrong dispatcher is a common source of ANRs and jank
+
+---
+
 ## Questions We Are Intentionally Postponing
 
 You may naturally wonder:
