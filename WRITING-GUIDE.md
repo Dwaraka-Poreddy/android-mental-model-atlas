@@ -24,6 +24,9 @@ The best endings make the next chapter feel inevitable. The "A Natural Question"
 **Rule 6: Never repeat without adding understanding.**
 If you've explained something once, a link is better than a re-explanation. If new context genuinely changes the understanding, explain it. If it doesn't, cut it.
 
+**Rule 7: Every section must earn its place.**
+A longer document is not a better document. Every section should introduce a new idea, deepen understanding, or improve recognition. If removing a section doesn't reduce the reader's understanding, remove it. Clarity comes from relevance, not length.
+
 ---
 
 ## Before You Write: Metadata Block
@@ -507,6 +510,57 @@ class SearchViewModel @Inject constructor(
 
 ---
 
+### [OPTIONAL] How Did This Evolve?
+
+**When to add:** When the concept has a recognizable historical progression — a sequence of real design decisions that led to the current pattern. Not every concept has a meaningful evolution worth showing. Add it when the journey itself teaches something the destination alone doesn't.
+
+Stories are memorable. A reader who understands *why* each stage was inadequate will remember the final pattern far longer than a reader who only sees the end state.
+
+**Rules:**
+- Show the evolution as a vertical progression, not a table
+- Each stage must be a genuine improvement — not just a rename
+- Label each stage with what problem it introduced or solved
+- Keep it tight — 3-5 stages maximum
+
+**Template:**
+```markdown
+## How Did This Evolve?
+
+```text
+V1 — [What teams did first]
+↓ Problem: [Why it broke down]
+
+V2 — [The first fix]
+↓ Problem: [Why this still wasn't enough]
+
+V3 — [The mature pattern]
+```
+```
+
+**Example:**
+```markdown
+## How Did This Evolve?
+
+```text
+V1 — Throw exceptions from network calls
+↓ Problem: Catch blocks scattered across every ViewModel
+
+V2 — Catch at the call site, return null on failure
+↓ Problem: Callers can't distinguish "no data" from "error"
+
+V3 — Exception Mapper at the boundary
+↓ Problem: Error type still varies by caller — no shared contract
+
+V4 — NetworkResult<T>
+sealed class with Success, Error, Loading
+One contract. Every caller reads it the same way.
+```
+```
+
+**Length:** 10-20 lines.
+
+---
+
 ### [OPTIONAL] Common Misconception
 
 **When to add:** When there is a widespread wrong mental model that needs to be explicitly named and corrected. Not every concept has a misconception worth naming — only add this when the wrong idea is genuinely common.
@@ -826,6 +880,10 @@ Does the concept have multiple valid real-world implementations?
 ├─ YES → Add Variations or Decision Matrix
 └─ NO  → Continue
 
+Did this concept go through recognizable design stages that explain why it looks the way it does?
+├─ YES → Add How Did This Evolve?
+└─ NO  → Continue
+
 Is there a common dangerous wrong approach?
 ├─ YES → Add Anti-Pattern
 └─ NO  → Continue
@@ -1030,6 +1088,8 @@ Read-Only State — UI can only observe, not mutate
 Focus on: Ownership and access control, not the API names.
 
 ---
+
+## How Did This Evolve?                       ← [OPTIONAL] Historical progression — only when the journey teaches more than the destination
 
 ## Production Notes                           ← [OPTIONAL] Memorable facts for experienced engineers
 
