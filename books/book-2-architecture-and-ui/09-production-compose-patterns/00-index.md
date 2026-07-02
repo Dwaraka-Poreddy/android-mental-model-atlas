@@ -1,4 +1,4 @@
-# DOC 8 — Production Compose Patterns
+# DOC 9 — Production Compose Patterns
 
 **Purpose:** How Experienced Android Engineers Design Compose Applications
 

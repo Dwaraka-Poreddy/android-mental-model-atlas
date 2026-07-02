@@ -1,8 +1,15 @@
+<!--
+Primary Question: Why does Android need a navigation system?
+Prerequisites: DOC 5 — Unidirectional Data Flow
+After Reading: You understand why applications need a dedicated system to coordinate screens instead of letting screens communicate directly.
+Next Concept: Navigation Graph
+-->
+
 # Why Navigation Exists
 
 ## Looking Back
 
-In the previous document we learned:
+In the previous document, we learned:
 
 ```text
 ViewModel
@@ -30,269 +37,235 @@ Events Flow To Owners
 State Flows To Consumers
 ```
 
-We now know how to build a single screen
-with clean architecture.
+We now know how to build a single screen with clean architecture.
 
-But a natural question appears:
+A natural question appears.
 
 ```text
 An App Has Many Screens.
 
-How Do They Connect?
+How Do They Work Together?
 ```
-
----
-
-## A Simple Observation
-
-Consider a food delivery app.
-
-The user opens the app and sees:
-
-```text
-Home
-```
-
-They search for a restaurant:
-
-```text
-Home → Search
-```
-
-They tap a restaurant:
-
-```text
-Home → Search → Restaurant
-```
-
-They add an item and go to cart:
-
-```text
-Home → Search → Restaurant → Cart
-```
-
-They press Back:
-
-```text
-Home → Search → Restaurant
-```
-
-Three things happened:
-
-```text
-1. The app showed different screens at different times
-
-2. The system knew where "Back" should go
-
-3. The previous screen's state was still there
-```
-
-None of this is accidental.
-
-Something is managing it.
 
 ---
 
 ## The Problem
 
-Without a system, each screen would need to know
-about every other screen.
+Imagine building a food delivery app.
+
+The user opens the app.
 
 ```text
-Home → knows about → Search
-Home → knows about → Cart
-Home → knows about → Profile
-Search → knows about → Restaurant
-Search → knows about → Home
-Restaurant → knows about → Cart
-Restaurant → knows about → Search
-Cart → knows about → Checkout
-Cart → knows about → Restaurant
+Home
 ```
 
-Every screen becomes tangled with every other screen.
-
-Adding a new screen means updating many existing screens.
-
-And the question remains:
+They search for a restaurant.
 
 ```text
-Who Remembers Where "Back" Goes?
+Home → Search
 ```
+
+They open a restaurant.
+
+```text
+Home → Search → Restaurant
+```
+
+They add food to the cart.
+
+```text
+Home → Search → Restaurant → Cart
+```
+
+Now imagine every screen directly controlled every other screen.
+
+```text
+Home
+
+├── Search
+
+├── Cart
+
+├── Profile
+
+└── Orders
+
+-------------------------
+
+Search
+
+├── Home
+
+├── Restaurant
+
+└── Cart
+
+-------------------------
+
+Restaurant
+
+├── Search
+
+├── Cart
+
+└── Checkout
+```
+
+Every new screen creates more connections.
+
+Every change affects multiple existing screens.
+
+The application quickly becomes difficult to understand and maintain.
+
+There must be a better way.
 
 ---
 
-## What Navigation Actually Is
+## Navigation
 
-Navigation is a system that manages three things:
+Instead of letting screens communicate directly,
+
+Android applications introduce a dedicated navigation system.
+
+Conceptually,
+
+the architecture changes from this:
 
 ```text
-1. Which screen is currently visible
+Screen
 
-2. How screens connect to each other
+↓
 
-3. The history of screens the user has visited
+Another Screen
+
+↓
+
+Another Screen
 ```
 
-Think of it as a coordinator
-that sits above individual screens.
+to this:
+
+```text
+Screen
+
+↓
+
+Navigation System
+
+↓
+
+Another Screen
+```
+
+Screens no longer decide where to go next.
+
+They ask the navigation system.
+
+The navigation system decides what happens.
+
+---
+
+## A Mental Model
+
+Imagine a city.
+
+Buildings don't decide how people travel between them.
+
+Roads,
+
+traffic signals,
+
+and maps coordinate movement.
+
+```text
+Home
+
+↓
+
+Road Network
+
+↓
+
+Restaurant
+
+↓
+
+Road Network
+
+↓
+
+Cart
+```
+
+The buildings simply exist.
+
+The transportation system connects them.
+
+Navigation works in exactly the same way.
+
+Screens focus on displaying information.
+
+The navigation system coordinates movement between them.
+
+---
+
+## What Navigation Manages
+
+Conceptually,
+
+the navigation system has three responsibilities.
 
 ```text
 Navigation System
 
 ↓
 
-Manages
+Knows Which Screens Exist
 
 ↓
 
-Which Screen Is Visible
+Coordinates Movement Between Screens
 
 ↓
 
-How Screens Connect
+Remembers The User's Journey
+```
+
+Individual screens remain focused on their own responsibilities.
+
+The navigation system coordinates how those screens work together.
+
+---
+
+## Why This Scales Better
+
+When a new screen is added,
+
+existing screens don't need to learn about every possible destination.
+
+Instead,
+
+they simply request navigation.
+
+```text
+Restaurant Screen
 
 ↓
 
-Screen History
-```
-
-Individual screens don't need to know about each other.
-
-They only need to know about the navigation system.
-
----
-
-## A Mental Model
-
-Think of the screens in an app as locations on a map.
-
-```text
-[Home] ——→ [Search] ——→ [Restaurant]
-  |                          |
-  ↓                          ↓
-[Profile]                 [Cart] ——→ [Checkout]
-```
-
-Each location is a destination.
-
-Each arrow is a possible transition.
-
-The navigation system is the driver
-who follows this map.
-
----
-
-## The Back Stack
-
-When the user moves through screens,
-the system remembers where they came from.
-
-```text
-User taps Search:
-
-  ┌──────────┐
-  │  Search   │  ← visible
-  ├──────────┤
-  │   Home    │
-  └──────────┘
-```
-
-User taps a restaurant:
-
-```text
-  ┌──────────┐
-  │Restaurant │  ← visible
-  ├──────────┤
-  │  Search   │
-  ├──────────┤
-  │   Home    │
-  └──────────┘
-```
-
-User presses Back:
-
-```text
-  ┌──────────┐
-  │  Search   │  ← visible
-  ├──────────┤
-  │   Home    │
-  └──────────┘
-```
-
-This structure is called the back stack.
-
-```text
-Back Stack = The History Of Screens The User Has Visited
-```
-
-It is a stack because the most recent screen
-is always on top.
-
-Pressing Back removes the top screen
-and reveals the one beneath it.
-
----
-
-## Why This Matters For Architecture
-
-Remember from DOC 5:
-
-```text
-ViewModel
+Navigate To Checkout
 
 ↓
 
-Owns Screen State
+Navigation System
+
+↓
+
+Checkout Screen
 ```
 
-Each screen in the back stack can have its own ViewModel.
+Each screen remains independent.
 
-When the user navigates to a new screen,
-a new ViewModel is created for that screen.
-
-When the user presses Back,
-the screen and its ViewModel are removed from the stack.
-
-```text
-  ┌─────────────────────────┐
-  │ Restaurant               │  ← visible
-  │   └── RestaurantViewModel │
-  ├─────────────────────────┤
-  │ Search                   │
-  │   └── SearchViewModel    │
-  ├─────────────────────────┤
-  │ Home                     │
-  │   └── HomeViewModel      │
-  └─────────────────────────┘
-```
-
-Navigation and architecture work together.
-
-The back stack manages screen lifetime.
-
-The ViewModel manages screen state.
-
----
-
-## Production Notes
-
-```text
-• Navigation manages which screen is visible,
-  not how the screen looks.
-
-• The back stack is the history of screens.
-  Pressing Back pops the top screen.
-
-• Each screen in the back stack can own its own ViewModel.
-  The ViewModel is scoped to that screen's lifetime.
-
-• Without a navigation system,
-  screens become tightly coupled to each other.
-
-• Navigation is not UI.
-  It is a system that coordinates screen transitions.
-```
+The navigation system becomes the single coordinator for moving through the application.
 
 ---
 
@@ -306,18 +279,9 @@ Navigation = Moving Between Activities
 
 Incorrect.
 
-In modern Android, most apps use a single Activity
-with multiple screens managed by a navigation system.
+Modern Android applications commonly use:
 
 ```text
-Old Approach
-
-Activity A → Activity B → Activity C
-
--------------------------
-
-Modern Approach
-
 Single Activity
 
 ↓
@@ -326,30 +290,28 @@ Navigation System
 
 ↓
 
-Screen A → Screen B → Screen C
+Multiple Screens
 ```
 
-The navigation system replaces
-what Activities used to do for screen transitions.
+The navigation system coordinates screen transitions inside the application.
+
+Activities are no longer the primary navigation mechanism.
 
 ---
 
 ## A Natural Question
 
-We now understand that navigation is a system
-that manages screens, transitions, and history.
+We've learned why applications need a navigation system.
 
-But a question immediately appears.
+A natural question appears.
 
 ```text
-How Does The System Know
-Which Screens Exist
-And How They Connect?
+If A Navigation System Coordinates Screens, How Does It Know Which Screens Exist And How They're Connected?
 ```
 
-The system needs a map.
+It needs a map.
 
-That leads us to the next concept:
+That leads us to the next concept.
 
 ```text
 Navigation Graph
@@ -362,39 +324,13 @@ Navigation Graph
 ### Core Idea
 
 ```text
-Navigation = A System That Manages
-Which Screen Is Visible,
-How Screens Connect,
-And The History Of Visited Screens
+Navigation = The System That Coordinate Movement Between Screens
 ```
 
 ### Mental Model
 
 ```text
-[Home] ——→ [Search] ——→ [Restaurant]
-  |                          |
-  ↓                          ↓
-[Profile]                 [Cart]
-
-        ↓
-
-    Back Stack
-
-        ↓
-
-  ┌──────────┐
-  │ Current   │  ← visible
-  ├──────────┤
-  │ Previous  │
-  ├──────────┤
-  │ Earlier   │
-  └──────────┘
-```
-
-### Production Recognition
-
-```text
-Single Activity App
+Screen
 
 ↓
 
@@ -402,18 +338,31 @@ Navigation System
 
 ↓
 
-Multiple Screens + Back Stack
+Another Screen
 ```
 
-> **You'll see this in...**
-> - **DOC 7 — Jetpack Compose**, where each screen is a Composable function that the navigation system displays
-> - **DOC 9 — Production Compose Patterns**, where navigation events are hoisted out of Composables into ViewModels
-> - **DOC 11 — Remote Communication**, where navigating to a screen may trigger data loading via its ViewModel
+Screens don't navigate directly.
+
+They ask the navigation system.
+
+---
+
+### Production Recognition
+
+When reading a production Android application,
+
+look for a single navigation system that coordinates screen transitions.
+
+Individual screens request navigation.
+
+They don't know how the transition is performed.
+
+---
 
 ### Previous Concept
 
 ```text
-DOC 5 — Unidirectional Data Flow
+Unidirectional Data Flow
 ```
 
 ### Next Concept

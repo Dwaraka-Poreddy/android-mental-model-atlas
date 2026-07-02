@@ -6,10 +6,11 @@ This book contains the foundational dependency chain for understanding Android e
 
 ## Documents
 
-- [DOC 1 — Computer & Android Foundations](./01-foundations/)
-- [DOC 2 — Coroutines Core](./02-coroutines-core/)
-- [DOC 3 — Reactive Streams & Flow](./03-flow/)
-- [DOC 4 — State Management](./04-state-management/)
+- [DOC 1 — Computer & Android Foundations](./01-foundations/00-index.md)
+- [DOC 2 — Coroutines Core](./02-coroutines-core/00-index.md)
+- [DOC 3 — Reactive Streams & Flow](./03-flow/00-index.md)
+- [DOC 4 — State Management](./04-state-management/00-index.md)
+- [DOC 5 - Android Lifecycle & Architecture](./05-android-lifecycle-architecture/00-index.md)
 
 ---
 

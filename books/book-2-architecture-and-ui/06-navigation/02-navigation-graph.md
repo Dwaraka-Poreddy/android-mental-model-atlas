@@ -1,375 +1,304 @@
+<!--
+Primary Question: How does the navigation system know which screens exist and how they connect?
+Prerequisites: Why Navigation Exists
+After Reading: You understand that a Navigation Graph is a declarative blueprint describing all valid navigation paths in an application.
+Next Concept: NavController
+-->
+
 # Navigation Graph
 
 ## Looking Back
 
-In the previous chapter we learned:
+In the previous chapter, we learned that applications use a dedicated navigation system to coordinate movement between screens.
+
+Instead of allowing screens to communicate directly,
+
+every screen requests navigation through a central system.
+
+A natural question appears.
 
 ```text
-Navigation = A System That Manages
-
-↓
-
-Which Screen Is Visible
-
-↓
-
-How Screens Connect
-
-↓
-
-Screen History (Back Stack)
-```
-
-A natural question appeared:
-
-```text
-How Does The System Know
-Which Screens Exist
-And How They Connect?
+How Does The Navigation System Know Which Screens Exist And How They Connect?
 ```
 
 ---
 
 ## The Problem
 
-Suppose you are building an e-commerce app.
+Imagine building an e-commerce application.
 
-The app has these screens:
+It contains these screens.
 
 ```text
 Home
+
 Search
+
 Product Details
+
 Cart
+
 Checkout
+
 Order Confirmation
+
+Profile
 ```
 
-Some transitions make sense:
+Some transitions make perfect sense.
 
 ```text
-Home → Search           ✓
-Product Details → Cart  ✓
-Cart → Checkout         ✓
+Home → Search
+
+Search → Product Details
+
+Product Details → Cart
+
+Cart → Checkout
 ```
 
-Some transitions do not:
+Others don't.
 
 ```text
-Checkout → Search       ✗
-Order Confirmation → Cart  ✗
+Checkout → Search
+
+Order Confirmation → Cart
+
+Profile → Checkout
 ```
 
-Without a clear definition of what is allowed,
-any screen could navigate to any other screen.
+Without a clear definition,
 
-The system needs a blueprint.
+the navigation system has no idea which transitions are valid.
+
+There must be a way to describe the application's navigation structure.
+
+---
+
+## A Thought Experiment
+
+Imagine opening Google Maps.
+
+The map already knows:
+
+- every city,
+- every road,
+- and how they're connected.
+
+The map doesn't drive your car.
+
+It doesn't decide where you should go.
+
+It simply describes what is possible.
+
+```text
+City A ───── City B
+   │            │
+   │            │
+   └────── City C
+```
+
+A Navigation Graph works the same way.
+
+It doesn't perform navigation.
+
+It simply describes every valid path through the application.
 
 ---
 
 ## Navigation Graph
 
-A Navigation Graph is:
+A Navigation Graph is the blueprint of an application's navigation.
+
+Conceptually,
+
+it describes two things.
 
 ```text
-The Blueprint Of All Possible
-Screen Transitions In The App
+Destinations
+
++
+
+Connections Between Them
 ```
 
-It defines two things:
+It answers questions like:
 
 ```text
-1. Every destination the user can visit
+Can Home reach Search?
 
-2. Every transition that connects them
+Can Cart reach Checkout?
+
+Can Checkout reach Order Confirmation?
 ```
 
-Think of it as a map the navigation system follows.
+It does **not** answer:
+
+```text
+Should navigation happen now?
+```
+
+That decision belongs to another component.
+
+The Navigation Graph only describes what is possible.
 
 ---
 
-## A Mental Model
+## Destinations
 
-Consider the e-commerce app.
+A destination is any screen the user can visit.
 
-```text
-   [Home]
-    |   \
-    ↓    ↓
-[Search] [Profile]
-    |
-    ↓
-[Product Details]
-    |
-    ↓
-  [Cart]
-    |
-    ↓
-[Checkout]
-    |
-    ↓
-[Order Confirmation]
-```
-
-Each box is a destination.
-
-Each arrow is a route the user can take.
-
-Together, they form the navigation graph.
-
----
-
-## Destinations and Routes
-
-The graph consists of two things.
-
-Destinations:
+For example,
 
 ```text
-Destination = A Screen The User Can Visit
+Home
+
+Search
+
+Product Details
+
+Cart
+
+Checkout
 ```
 
-Routes:
+Each destination represents a place the user can navigate to.
 
-```text
-Route = A Path From One Destination To Another
-```
+Nothing more.
 
-Every destination has a unique identifier.
-
-```text
-"home"
-"search"
-"product/{id}"
-"cart"
-"checkout"
-```
-
-The navigation system uses these identifiers
-to know which screen to display.
+Nothing less.
 
 ---
 
 ## Start Destination
 
-Every navigation graph has a start destination.
+Every Navigation Graph has one destination where the application begins.
+
+Conceptually,
 
 ```text
 Navigation Graph
 
 ↓
 
-Start Destination = Home
+Start Destination
 
 ↓
 
-Home → Search → Product Details → Cart → ...
+Home
 ```
 
-When the app opens,
-the navigation system displays the start destination.
+When navigation starts,
 
-If the back stack is empty
-and the user presses Back,
-the app exits.
+the navigation system begins at this destination.
+
+Every journey through the application starts from here.
 
 ---
 
-## Minimal Code
+## Connections
 
-```kotlin
-NavHost(startDestination = "home") {
+A Navigation Graph also defines how destinations are connected.
 
-    composable("home") { HomeScreen() }
-
-    composable("search") { SearchScreen() }
-
-    composable("product/{id}") { ProductScreen() }
-
-    composable("cart") { CartScreen() }
-}
-```
-
-This declares four destinations
-with the start destination set to "home".
-
----
-
-## Production Code
-
-```kotlin
-@Composable
-fun AppNavigation() {
-
-    val navController = rememberNavController()
-
-    NavHost(
-        navController = navController,
-        startDestination = "home"
-    ) {
-
-        composable("home") {
-            HomeScreen(
-                onSearchClick = {
-                    navController.navigate("search")
-                },
-                onCartClick = {
-                    navController.navigate("cart")
-                }
-            )
-        }
-
-        composable("search") {
-            SearchScreen(
-                onProductClick = { productId ->
-                    navController.navigate("product/$productId")
-                }
-            )
-        }
-
-        composable("product/{id}") {
-            ProductScreen()
-        }
-
-        composable("cart") {
-            CartScreen()
-        }
-
-    }
-}
-```
-
-### How To Read It
-
-Don't read this as a wall of code.
-
-Read it as a map:
+Conceptually,
 
 ```text
-AppNavigation
+Home
 
 ↓
 
-Declares The Map
-
--------------------------
-
-NavHost
+Search
 
 ↓
 
-The Container That Holds The Map
+Product Details
 
 ↓
 
-startDestination = "home"
+Cart
 
 ↓
 
-App Opens On Home
-
--------------------------
-
-composable("home") { HomeScreen() }
-
-↓
-
-"home" Is A Destination
-
-↓
-
-HomeScreen Is What Gets Displayed
-
--------------------------
-
-navController.navigate("search")
-
-↓
-
-Follow The Route To "search"
-
--------------------------
-
-composable("product/{id}")
-
-↓
-
-"product/{id}" Is A Destination
-
-↓
-
-{id} Is A Placeholder For Data
+Checkout
 ```
 
-Every `composable(...)` block adds a destination to the map.
+Each connection represents a valid navigation path.
 
-Every `navigate(...)` call follows a route on that map.
+Together,
 
-> **You'll see this in...**
-> - **DOC 5 — ViewModel**, where each destination gets its own ViewModel scoped to that destination's back stack entry
+the destinations and their connections form the application's navigation map.
 
 ---
 
-## How The Graph Connects To Architecture
+## A Declarative Blueprint
 
-Each destination in the graph
-can have its own ViewModel.
+One important idea is that a Navigation Graph is **declarative**.
 
-```text
-composable("home")
-  └── HomeViewModel
+It describes
 
-composable("search")
-  └── SearchViewModel
+what is possible,
 
-composable("product/{id}")
-  └── ProductViewModel
+not
 
-composable("cart")
-  └── CartViewModel
-```
+what will happen.
 
-The navigation graph defines the destinations.
-
-The ViewModel owns the state for each destination.
+Think of it this way.
 
 ```text
 Navigation Graph
 
 ↓
 
-Defines Where
-
--------------------------
-
-ViewModel
-
-↓
-
-Defines What State
+Possible Paths
 ```
+
+Later,
+
+another component will decide
+
+which path should actually be taken.
 
 ---
 
-## Production Notes
+## Why This Scales Better
+
+As applications grow,
+
+new screens are added over time.
+
+Imagine introducing a new screen.
 
 ```text
-• The navigation graph is the single source of truth
-  for all possible screen transitions.
-
-• Each destination is identified by a unique route string.
-
-• The start destination is the first screen the user sees.
-
-• Route strings can contain parameters like "product/{id}"
-  for passing data between screens.
-
-• Defining the graph in one place makes it easy to understand
-  all possible paths through the app.
-
-• The navigation graph does not decide when to navigate.
-  It only defines where navigation can go.
+Wishlist
 ```
+
+The Navigation Graph simply gains one more destination
+
+and the connections to reach it.
+
+```text
+Home
+
+↓
+
+Wishlist
+
+↓
+
+Product Details
+```
+
+The application's navigation remains organized in one place.
+
+Instead of being scattered throughout the application,
+
+the navigation structure is described by a single blueprint.
+
+As the application grows,
+
+the Navigation Graph grows with it,
+
+making it easier to understand every possible navigation path.
 
 ---
 
@@ -383,46 +312,57 @@ Navigation Graph = A List Of Screens
 
 Incorrect.
 
-A list of screens has no connections.
+A list only tells us what exists.
 
 ```text
-List
+Home
 
-↓
+Search
 
-Home, Search, Cart, Checkout
+Cart
 
--------------------------
-
-Graph
-
-↓
-
-Home → Search → Product → Cart → Checkout
+Checkout
 ```
 
-The graph defines both the destinations
-and the transitions between them.
+A graph also tells us how everything connects.
 
-Without transitions, the system has no idea
-which screens can reach which other screens.
+```text
+Home
+
+↓
+
+Search
+
+↓
+
+Product Details
+
+↓
+
+Cart
+
+↓
+
+Checkout
+```
+
+The connections are just as important as the destinations themselves.
 
 ---
 
 ## A Natural Question
 
-We now have a map of all screens and their connections.
+We now have a complete map of the application.
 
-But a question immediately appears.
+But another question immediately appears.
 
 ```text
 The Map Exists.
 
-Who Actually Reads The Map
-And Drives The Navigation?
+Who Actually Reads It And Performs Navigation?
 ```
 
-That leads us to the next concept:
+That responsibility belongs to the next concept.
 
 ```text
 NavController
@@ -435,58 +375,63 @@ NavController
 ### Core Idea
 
 ```text
-Navigation Graph = The Blueprint Of All Possible
-Screen Transitions In The App
+Navigation Graph
+
+=
+
+The Blueprint Of Every Valid
+Navigation Path In The Application
 ```
+
+---
 
 ### Mental Model
-
-```text
-   [Home]
-    |   \
-    ↓    ↓
-[Search] [Profile]
-    |
-    ↓
-[Product Details]
-    |
-    ↓
-  [Cart]
-
-Destinations = Nodes
-
-Transitions = Edges
-```
-
-### Production Recognition
-
-```kotlin
-NavHost(startDestination = "home") {
-    composable("home") { ... }
-    composable("search") { ... }
-}
-```
-
-↓
 
 ```text
 Navigation Graph
 
 ↓
 
-Destinations + Routes + Start
+Map
+
+↓
+
+Destinations + Connections
 ```
 
-> **You'll see this in...**
-> - **DOC 7 — Jetpack Compose**, where each destination renders a Composable function
-> - **DOC 14 — Dependency Injection**, where Hilt provides ViewModels scoped to navigation destinations
-> - **DOC 16 — Testing Strategy**, where navigation graphs are tested to verify correct screen transitions
+The graph describes what is possible.
+
+It does not perform navigation.
+
+---
+
+### Production Recognition
+
+When exploring a production Android project,
+
+look for one place where all destinations
+
+and their connections are defined.
+
+Whether it's XML,
+
+Compose,
+
+or another navigation framework,
+
+there is usually a single source of truth
+
+describing the application's navigation structure.
+
+---
 
 ### Previous Concept
 
 ```text
 Why Navigation Exists
 ```
+
+---
 
 ### Next Concept
 

@@ -1,4 +1,4 @@
-# DOC 6 — Jetpack Compose
+# DOC 7 — Jetpack Compose
 
 **Purpose:** How Modern Android UI Is Described And Updated
 

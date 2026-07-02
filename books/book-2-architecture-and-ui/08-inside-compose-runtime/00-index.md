@@ -1,4 +1,4 @@
-# DOC 7 — Inside Compose Runtime
+# DOC 8 — Inside Compose Runtime
 
 **Purpose:** How Compose Understands, Remembers And Updates Your UI
 

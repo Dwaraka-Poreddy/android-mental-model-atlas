@@ -1,399 +1,231 @@
+<!--
+Primary Question: Who actually performs navigation inside an Android application?
+Prerequisites: Navigation Graph
+After Reading: You understand that the NavController is responsible for reading the Navigation Graph, executing navigation requests, and managing navigation state.
+Next Concept: NavHost
+-->
+
 # NavController
 
 ## Looking Back
 
-In the previous chapter we learned:
+In the previous chapter,
+
+we learned that a Navigation Graph describes every valid navigation path in an application.
+
+Conceptually,
+
+it is the application's map.
+
+A natural question appears.
 
 ```text
-Navigation Graph = The Blueprint Of All Possible
-Screen Transitions In The App
-```
-
-The map exists.
-
-But a natural question appears:
-
-```text
-Who Actually Reads The Map
-And Drives The Navigation?
+The Map Exists. Who Actually Reads It And Performs Navigation?
 ```
 
 ---
 
 ## The Problem
 
-Suppose the user is on the Home screen
-and taps "Search."
+Imagine opening a navigation app.
 
-Several things need to happen:
+A map is displayed on the screen.
+
+The map already knows:
+
+- every road,
+- every intersection,
+- every possible route.
+
+But nothing moves.
+
+Simply having a map doesn't take you anywhere.
+
+Someone still needs to:
+
+- decide when to start driving,
+- choose which road to follow,
+- and keep track of the current location.
+
+A Navigation Graph has the same limitation.
+
+It describes navigation.
+
+It doesn't perform it.
+
+There must be another component responsible for that.
+
+---
+
+## A Thought Experiment
+
+Imagine driving through a city.
 
 ```text
-1. Look up "search" in the navigation graph
+Road Map
 
-2. Create the Search screen
+↓
 
-3. Push it onto the back stack
+Driver
 
-4. Display it
+↓
+
+Destination
 ```
 
-And when the user presses Back:
+The map describes every possible road.
 
-```text
-1. Remove the top screen from the back stack
+The driver reads the map,
 
-2. Display the screen beneath it
-```
+decides where to go,
 
-The navigation graph cannot do this.
+and actually drives the car.
 
-It is a map, not a driver.
+Without the driver,
 
-Something needs to read the map
-and execute the transitions.
+the map is just information.
+
+Navigation in Android works the same way.
+
+The Navigation Graph is the map.
+
+The NavController is the driver.
 
 ---
 
 ## NavController
 
-The NavController is:
+The NavController is responsible for performing navigation.
+
+Conceptually,
+
+its responsibilities are:
 
 ```text
-The Driver That Follows The Navigation Graph
-And Manages The Back Stack
+Receive Navigation Requests
+
+↓
+
+Consult The Navigation Graph
+
+↓
+
+Move To The Requested Destination
+
+↓
+
+Remember The Current Navigation State
 ```
 
-It has two responsibilities:
+The Navigation Graph describes what is possible.
 
-```text
-1. Execute navigation commands (go forward, go back)
-
-2. Maintain the back stack (track screen history)
-```
-
-Think of it this way:
-
-```text
-Navigation Graph = The Map
-
-NavController = The Driver
-```
-
-The map tells the driver where roads exist.
-
-The driver decides when to move
-and remembers where it has been.
+The NavController decides what actually happens.
 
 ---
 
-## A Mental Model
+## Moving Forward
+
+When the user requests navigation,
+
+the NavController moves to another destination.
+
+Conceptually,
 
 ```text
-User Taps "Search"
+Home
 
 ↓
+
+Navigate
+
+↓
+
+Search
+```
+
+The request reaches the NavController.
+
+The NavController follows the Navigation Graph and displays the requested destination.
+
+---
+
+## Moving Back
+
+Navigation also works in the opposite direction.
+
+When the user presses Back,
+
+the NavController returns to the previous destination.
+
+Conceptually,
+
+```text
+Search
+
+↓
+
+Back
+
+↓
+
+Home
+```
+
+The NavController remembers the user's journey and moves back through it when requested.
+
+We'll learn exactly how this history is maintained when we study the Back Stack.
+
+---
+
+## The Relationship
+
+By now, the navigation system consists of two parts.
+
+```text
+Navigation Graph
+
+↓
+
+Describes
+
+↓
+
+Possible Navigation Paths
+
+-------------------------
 
 NavController
 
 ↓
 
-Looks Up "search" In The Graph
+Performs
 
 ↓
 
-Pushes Search Onto The Back Stack
-
-↓
-
-Search Screen Becomes Visible
+Actual Navigation
 ```
 
-And when the user presses Back:
+One component defines the map.
 
-```text
-User Presses Back
+The other follows it.
 
-↓
+Together,
 
-NavController
-
-↓
-
-Pops Search From The Back Stack
-
-↓
-
-Home Screen Becomes Visible Again
-```
-
-The NavController is the single point of control
-for all navigation in the app.
+they make navigation possible.
 
 ---
 
-## The Key Operations
+## Why This Matters
 
-The NavController exposes two fundamental operations.
+Separating these responsibilities keeps the navigation system simple.
 
-Navigate forward:
+The Navigation Graph focuses on structure.
 
-```text
-navController.navigate("search")
+The NavController focuses on execution.
 
-↓
+Neither component needs to perform the other's job.
 
-Push "search" Onto The Back Stack
-
-↓
-
-Display Search Screen
-```
-
-Navigate back:
-
-```text
-navController.popBackStack()
-
-↓
-
-Pop Top Screen From The Back Stack
-
-↓
-
-Display Previous Screen
-```
-
-Every navigation action in the app
-goes through the NavController.
-
----
-
-## Minimal Code
-
-```kotlin
-// Navigate forward
-navController.navigate("search")
-
-// Navigate back
-navController.popBackStack()
-
-// Check current destination
-navController.currentBackStackEntry
-```
-
-Three operations cover most navigation needs.
-
----
-
-## Production Code
-
-```kotlin
-@Composable
-fun HomeScreen(
-    onSearchClick: () -> Unit,
-    onCartClick: () -> Unit
-) {
-    Column {
-
-        SearchBar(
-            onClick = onSearchClick
-        )
-
-        ProductGrid()
-
-        CartButton(
-            onClick = onCartClick
-        )
-
-    }
-}
-
-@Composable
-fun AppNavigation() {
-
-    val navController = rememberNavController()
-
-    NavHost(
-        navController = navController,
-        startDestination = "home"
-    ) {
-
-        composable("home") {
-            HomeScreen(
-                onSearchClick = {
-                    navController.navigate("search")
-                },
-                onCartClick = {
-                    navController.navigate("cart")
-                }
-            )
-        }
-
-        composable("search") {
-            SearchScreen(
-                onProductClick = { productId ->
-                    navController.navigate("product/$productId")
-                },
-                onBack = {
-                    navController.popBackStack()
-                }
-            )
-        }
-
-        composable("cart") {
-            CartScreen()
-        }
-
-    }
-}
-```
-
-### How To Read It
-
-```text
-HomeScreen
-
-↓
-
-Does Not Know About NavController
-
-↓
-
-Receives Navigation As Callbacks
-
-↓
-
-onSearchClick, onCartClick
-
--------------------------
-
-AppNavigation
-
-↓
-
-Creates NavController
-
-↓
-
-Wires Callbacks To Navigate Calls
-
--------------------------
-
-navController.navigate("search")
-
-↓
-
-Driver Follows The Route
-
-↓
-
-Search Screen Appears
-
--------------------------
-
-navController.popBackStack()
-
-↓
-
-Driver Goes Back
-
-↓
-
-Previous Screen Appears
-```
-
-Notice that HomeScreen never calls `navController.navigate(...)` directly.
-
-It receives lambda callbacks.
-
-The parent wires those callbacks to the NavController.
-
-This keeps screens independent of the navigation system.
-
----
-
-## Navigation Events From ViewModel
-
-Sometimes navigation needs to happen
-after a business operation completes.
-
-For example, after placing an order:
-
-```text
-User Taps "Place Order"
-
-↓
-
-ViewModel
-
-↓
-
-Repository.placeOrder()
-
-↓
-
-Order Confirmed
-
-↓
-
-Navigate To Order Confirmation
-```
-
-> **You'll see this in...**
-> - **DOC 4 — Channel**, where one-time navigation events are sent from ViewModel to UI using Channel, ensuring the event is consumed exactly once
-
-The ViewModel decides when to navigate.
-
-The UI executes the navigation.
-
-```text
-ViewModel
-
-↓
-
-Sends Navigation Event
-
-↓
-
-UI
-
-↓
-
-navController.navigate("order-confirmation")
-```
-
-This follows the same Unidirectional Data Flow
-from DOC 5.
-
-Events flow from UI to ViewModel.
-
-Navigation commands flow from ViewModel back to UI.
-
----
-
-## Production Notes
-
-```text
-• NavController is the single point of control
-  for all navigation in the app.
-
-• navigate() pushes a destination onto the back stack.
-  popBackStack() removes the top destination.
-
-• Screens should not hold a direct reference
-  to the NavController. Pass navigation actions
-  as lambda callbacks instead.
-
-• Navigation events from ViewModels are typically
-  sent using Channel (DOC 4) to ensure
-  each event is consumed exactly once.
-
-• The NavController automatically handles
-  the system Back button.
-
-• There is usually one NavController per navigation graph.
-  Nested navigation graphs may have their own.
-```
+This separation makes the navigation system easier to understand, maintain, and extend.
 
 ---
 
@@ -402,68 +234,43 @@ Navigation commands flow from ViewModel back to UI.
 A common misconception is:
 
 ```text
-Every Screen Should Call navController.navigate() Directly
+The Navigation Graph Performs Navigation
 ```
 
 Incorrect.
 
-If every screen holds a reference to the NavController,
-screens become coupled to the navigation system.
+The Navigation Graph only describes the application's navigation structure.
+
+The NavController is responsible for reading that structure and performing navigation.
+
+Think of it this way.
 
 ```text
-Coupled
-
-↓
-
-SearchScreen(navController)
-
-↓
-
-navController.navigate("product/$id")
+Navigation Graph = Map
 
 -------------------------
 
-Decoupled
-
-↓
-
-SearchScreen(onProductClick: (String) -> Unit)
-
-↓
-
-onProductClick(id)
+NavController = Driver
 ```
 
-The decoupled version is easier to test,
-easier to reuse,
-and easier to reason about.
-
-The screen says what happened.
-
-The parent decides where to go.
+A map never drives the car.
 
 ---
 
 ## A Natural Question
 
-We now understand that the NavController
-drives navigation and manages the back stack.
+We now understand that the NavController performs navigation.
 
-But in Compose, a question appears.
+A natural question appears.
 
 ```text
-Where Does The NavController Live?
-
-Who Creates It?
-
-And How Does It Connect
-To The Composable Screens?
+The NavController Knows Which Screen Should Be Visible. But Where Is That Screen Actually Displayed?
 ```
 
-That leads us to the next concept:
+That responsibility belongs to the next concept.
 
 ```text
-Navigation With Compose
+NavHost
 ```
 
 ---
@@ -473,63 +280,52 @@ Navigation With Compose
 ### Core Idea
 
 ```text
-NavController = The Driver That Follows
-The Navigation Graph And Manages The Back Stack
+NavController = The Component That Performs Navigation By Following The Navigation Graph
 ```
+
+---
 
 ### Mental Model
 
 ```text
-Navigation Graph = Map
-
-NavController = Driver
+Navigation Graph
 
 ↓
 
-navigate("search")
-
-↓
-
-Push Onto Back Stack
-
-↓
-
-Display Screen
+Map
 
 -------------------------
 
-popBackStack()
+NavController
 
 ↓
 
-Pop From Back Stack
+Driver
 
-↓
+-------------------------
 
-Display Previous Screen
+Destination
 ```
+
+The Navigation Graph describes navigation.
+
+The NavController performs it.
+
+---
 
 ### Production Recognition
 
-```kotlin
-val navController = rememberNavController()
+When reading a production Android project,
 
-navController.navigate("search")
-```
+look for a single component responsible for:
 
-↓
+- receiving navigation requests,
+- moving between destinations,
+- and coordinating navigation.
 
-```text
-Create Driver
+That component is typically the NavController.
 
-↓
-
-Follow Route To Search
-```
-
-> **You'll see this in...**
-> - **DOC 4 — Channel**, where ViewModel sends one-time navigation events to the UI via Channel
-> - **DOC 9 — Production Compose Patterns**, where NavController is treated as hoisted state managed at the top of the Composable tree
+---
 
 ### Previous Concept
 
@@ -537,8 +333,10 @@ Follow Route To Search
 Navigation Graph
 ```
 
+---
+
 ### Next Concept
 
 ```text
-Navigation With Compose
+NavHost
 ```
